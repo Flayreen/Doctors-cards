@@ -1,0 +1,42 @@
+# Custom #
+###########
+node_modules
+upload
+deploy.log
+config.yml
+package-lock.json
+*.sass-cache*
+.svn
+settings_data.json
+
+# Packages #
+############
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs #
+########
+*.log
+*.log.*
+
+# Editors #
+###########
+.idea
+*.iml
+.vscode
+*.sublime-workspace
+
+# OS generated files #
+######################
+.DS_Store?
+*.DS_Store
+ehthumbs.db
+Thumbs.db
+icon?
+

@@ -1,0 +1,16 @@
+//********************* mixins
+@import "_mixins/general";
+
+
+//********************* global
+@import "global/variables";
+@import "global/reset";
+@import "global/fonts";
+@import "global/base";
+
+
+//********************* block
+@import "block/header";
+@import "block/filters";
+@import "block/mainblock";
+@import "block/footer";

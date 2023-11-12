@@ -1,0 +1,29 @@
+.filters {
+	padding: 16px 42px;
+	
+	& .container {
+		display: flex;
+		justify-content: space-between;
+		
+	}
+	
+	&__title {
+		color: #333;
+		
+		font-size: 28px;
+		font-weight: 500;
+		line-height: 150%;
+		// media query -> display:none on mobile
+	}
+	
+	&__wrapper {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 1em;
+	}
+	&__urgency {
+		font-weight: 500;
+		
+	}
+}

@@ -1,0 +1,32 @@
+{
+  "name": "fe23-step-cards",
+  "version": "1.1.0",
+  "description": "FE23 Step Cards",
+  "main": "scripts/script.js",
+  "scripts": {
+    "test": "echo \"No test specified.\" && exit 1",
+    "dev": "gulp dev",
+    "build": "gulp build",
+    "publish": "git subtree push --prefix dist origin gh-pages"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whitehoof/template"
+  },
+  "author": "Ed Whitehoof",
+  "devDependencies": {
+    "browser-sync": "^2.29.3",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-clean": "^0.4.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-imagemin": "^8.0.0",
+    "gulp-minify": "^3.1.0",
+    "gulp-sass": "^5.1.0",
+    "jest": "^29.7.0",
+    "sass": "^1.69.4"
+  },
+  "type": "module"
+}

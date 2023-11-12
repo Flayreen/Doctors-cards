@@ -1,0 +1,32 @@
+// --------------------- BREAKPOINTS
+
+$ui-bp-max:			1200px;	// максимальна ширина контейнера (.container)
+
+$ui-bp-desk-min:	993px;	// мінімальний десктоп
+$ui-bp-tab-max:		992px;	// максимальний планшет
+
+$ui-bp-tab-min:		481px;	// мінімальний планшет
+$ui-bp-mob-max:		480px;	// максимальна мобіла
+
+$ui-bp-min:			320px;	// мінімальна ширина контейнера (.container)
+
+
+
+// --------------------- Z-INDEX
+
+$ui-index-1: 1; // hover elements
+$ui-index-2: 2; // hover elements
+$ui-index-3: 3; // hover elements
+$ui-index-4: 4; // hover elements
+$ui-index-5: 5; // hover elements
+
+$ui-index-6: 6; // darkening and blur masks
+$ui-index-7: 7; // sidebars
+$ui-index-8: 8; // modals
+$ui-index-9: 9; // above-all elements
+
+
+
+// --------------------- TRANSITIONS
+
+$ui-transition-default: 0.2s;	// дефолтна тривалість анімації

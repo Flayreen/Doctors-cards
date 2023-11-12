@@ -1,0 +1,10 @@
+@mixin default-font {
+	font-family: Rubik, Helvetica, Arial, sans-serif;
+	font-weight: 400;
+}
+
+@mixin title-font {
+	@include default-font;
+	font-weight: 500;
+}
+

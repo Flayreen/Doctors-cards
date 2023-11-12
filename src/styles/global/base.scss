@@ -1,0 +1,9 @@
+//------------- GLOBAL STYLES:
+
+body {
+	@include default-font;
+}
+.container {
+	min-width: $ui-bp-min;
+	max-width: $ui-bp-max;
+}
