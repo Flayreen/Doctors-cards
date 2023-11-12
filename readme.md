@@ -13,7 +13,7 @@
 
 `npm run build` — збудувати все перед комітом (те саме, шо `gulp build`).
 
-`npm run publish` — опублікувати [демо на Github Pages]() (є сенс робити це _після_ `npm run build` та `git push`).
+`npm run publish` — опублікувати свіже [демо на Github Pages](https://whitehoof.github.io/fe23-step-cards/) (є сенс робити це _після_ `npm run build` та `git push`).
 
 ## Important selectors
 `.mainblock .container` —  контейнер для карток.
