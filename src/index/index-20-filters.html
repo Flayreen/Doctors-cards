@@ -3,18 +3,32 @@
 		<div class="filters__title">Appointments</div>
 		
 		<div class="filters__wrapper">
-			<input class="py-2 border-right-0 border" type="search" placeholder="Search" id="search">
+<!--			<input class="form-control border-right-0 border" type="search" placeholder="Search" id="search">-->
 			
-			<div class="btn-group filters__status" role="group" aria-label="Filter by status">
-				<button type="button" class="btn btn-sm btn-light">Open</button>
-				<button type="button" class="btn btn-sm btn-light">Done</button>
+			<div class="input-group">
+				<input class="form-control border-end-0 border rounded-pill" type="search" value="search" id="example-search-input">
+				<span class="input-group-append">
+                    <button class="btn btn-outline-secondary bg-white border-bottom-0 border rounded-pill ms-n5" type="button">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </span>
 			</div>
 			
-			<div class="btn-group filters__urgency" role="group" aria-label="Filter by urgency of visit">
-				<button type="button" class="btn btn-sm btn-light">High</button>
-				<button type="button" class="btn btn-sm btn-light">Medium</button>
-				<button type="button" class="btn btn-sm btn-light">Low</button>
+			<div class="filters__wrapper--selects">
+				<select class="form-select" aria-label="Filter by status">
+					<option value="any" selected>Any status</option>
+					<option value="open">Open</option>
+					<option value="done">Done</option>
+				</select>
+				
+				<select class="form-select" aria-label="Filter by urgency">
+					<option value="any" selected>Any urgency</option>
+					<option value="low">Low</option>
+					<option value="medium">Medium</option>
+					<option value="high">High</option>
+				</select>
 			</div>
+			
 		</div>
 	
 	

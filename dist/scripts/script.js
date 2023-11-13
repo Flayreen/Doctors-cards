@@ -5,4 +5,3 @@ import VisitTherapist		from "./Classes/VisitTherapist.js";
 
 import filterCards			from "./functions/filter-cards.js";
 
-const filterButtonsArr = document.querySelectorAll('')

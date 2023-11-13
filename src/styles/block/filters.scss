@@ -3,6 +3,8 @@
 	
 	& .container {
 		display: flex;
+		flex-wrap: wrap;
+		gap: 1em 2em;
 		justify-content: space-between;
 		
 	}
@@ -26,4 +28,14 @@
 		font-weight: 500;
 		
 	}
+}
+
+
+
+.form-select {
+	width: min-content;
+}
+
+.form-control {
+	width: 18ch;
 }
