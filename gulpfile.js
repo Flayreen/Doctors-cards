@@ -133,6 +133,7 @@ gulp.task('dev', gulp.series(
 	indexConcat,									// then create fresh new "src/index.html" from pieces inside the "./src/index/" subfolder.
 	cleanDist,										// then kill the destination folder.
 	gulp.parallel(html, css, js, image, fonts),		// then do all these tasks in parallel.
+	deleteIndex,									// delete "src/index.html" again (to avoid confusion).
 	gulp.parallel(server, watcher)					// then run the local web server and start watching the files for changes.
 ));
 
@@ -140,5 +141,6 @@ gulp.task('build', gulp.series(
 	deleteIndex,									// delete smelly old "src/index.html".
 	indexConcat,									// then create fresh new "src/index.html" from pieces inside the "./src/index/" subfolder.
 	cleanDist,										// then kill the destination folder.
-	gulp.parallel(html, css, js, image, fonts)		// then do all these tasks in parallel.
+	gulp.parallel(html, css, js, image, fonts),		// then do all these tasks in parallel.
+	deleteIndex										// delete "src/index.html" again (to avoid confusion).
 ));
