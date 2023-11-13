@@ -111,7 +111,7 @@ const server = () => {
 }
 
 
-//		   ABOVE,	  BELOW
+
 gulp.task('cleanDist', cleanDist);
 gulp.task('deleteIndex', deleteIndex);
 gulp.task('indexConcat', indexConcat);
@@ -121,6 +121,7 @@ gulp.task('style', css);
 gulp.task('browser-sync', server);
 gulp.task('image', image);
 gulp.task('fonts', fonts);
+
 
 
 // BUILD & DEV:
