@@ -48,7 +48,9 @@ class Visit {
 		const containerMain = document.querySelector(".container--main");
 		containerMain.append(this.element);
 
+
 		this.delete();
+		this.showMore();
 	}
 
 	delete() {
@@ -83,17 +85,20 @@ class Visit {
 				darkBackground.append(modalContainer);
 				document.body.append(darkBackground);
 
+
+				// Event of deleting post
 				buttonDelete.addEventListener("click", async () => {
-					// const responseDelete = await deleteVisit(this.id);
-					//
-					// if (responseDelete.status === 200) {
-					// 	console.log("ZBS")
-					// }
-					document.body.style.overflow = "";
-					darkBackground.remove();
-					this.element.remove();
+					try {
+						await deleteVisit(this.id);
+						document.body.style.overflow = "";
+						darkBackground.remove();
+						this.element.remove();
+					} catch (err) {
+						console.log(err)
+					}
 				})
 
+				// Event of cancel deleting
 				buttonCancel.addEventListener("click",  () => {
 					document.body.style.overflow = "";
 					darkBackground.remove();
@@ -106,7 +111,44 @@ class Visit {
 	}
 
 	showMore() {
+		this.buttonMore.addEventListener("click", () => {
+			if (this.buttonMore.textContent === "Show more") {
+				// Create hidden block
+				const hideBlock = document.createElement("div");
+				hideBlock.classList.add("card__hidden");
+				// Create urgency
+				const urgencyBlock = document.createElement("div");
+				urgencyBlock.classList.add("card__hidden__text-block");
+				const urgencyTitle = document.createElement("span");
+				urgencyTitle.classList.add("card__hidden__text-block__title");
+				urgencyTitle.textContent = "Urgency:";
+				const urgencyDescription = document.createElement("p");
+				urgencyDescription.classList.add("card__hidden__text-block__description");
+				urgencyDescription.textContent = this.urgency;
+				urgencyBlock.append(urgencyTitle, urgencyDescription);
+				// Create purpose
+				const purposeBlock = document.createElement("div");
+				purposeBlock.classList.add("card__hidden__text-block");
+				const purposeTitle = document.createElement("span");
+				purposeTitle.classList.add("card__hidden__text-block__title");
+				purposeTitle.textContent = "Purpose:";
+				const purposeDescription = document.createElement("p");
+				purposeDescription.classList.add("card__hidden__text-block__description");
+				purposeDescription.textContent = this.purpose;
+				purposeBlock.append(purposeTitle, purposeDescription);
 
+				this.buttonMore.textContent = "Show less"
+				// Inserting content inside hidden block
+				hideBlock.append(urgencyBlock, purposeBlock);
+				// Inserting hidden block inside this.element
+				this.element.querySelector(".card__doctor").after(hideBlock);
+
+			} else {
+				const hideBlock = this.element.querySelector(".card__hidden");
+				hideBlock.remove();
+				this.buttonMore.textContent = "Show more";
+			}
+		})
 	}
 }
 
