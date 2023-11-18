@@ -1,9 +1,10 @@
 import deleteVisit from "../API/deleteVisit.js";
 
 class Visit {
-	constructor(fullName, urgency, description, purpose, doctor, id) {
+	constructor(fullName, urgency, status, description, purpose, doctor, id) {
 		this.fullName = fullName;
 		this.urgency = urgency;
+		this.status = status;
 		this.description = description;
 		this.purpose = purpose;
 		this.doctor = doctor;
@@ -18,6 +19,13 @@ class Visit {
 	render() {
 		// Create card container
 		this.element.classList.add("card");
+		if (this.urgency.toLowerCase() === "high") {
+			this.element.classList.add("card--high");
+		} else if (this.urgency.toLowerCase() === "normal") {
+			this.element.classList.add("card--normal");
+		} else {
+			this.element.classList.add("card--low");
+		}
 		// Create card title (patient's name)
 		const cardTitle = document.createElement("span");
 		cardTitle.classList.add("card__title");
@@ -55,97 +63,97 @@ class Visit {
 
 	delete() {
 		this.buttonDelete.addEventListener("click", () => {
-			try {
-				// Stop scrolling background
-				document.body.style.overflow = "hidden";
-				// Create dark background
-				const darkBackground = document.createElement("div");
-				darkBackground.style.top = window.scrollY + "px";
-				darkBackground.classList.add("dark-background");
-				// Create modal window
-				const modalContainer = document.createElement("div");
-				modalContainer.classList.add("modal");
-				// Text
-				const modalText = document.createElement("span");
-				modalText.classList.add("modal__text");
-				modalText.textContent = "Are you sure you want to delete the appointment?";
-				const buttonsContainer = document.createElement("div");
-				// Buttons container
-				buttonsContainer.classList.add("modal__buttons-container");
-				// Button "Cancel"
-				const buttonCancel = document.createElement("button");
-				buttonCancel.classList.add("modal__buttons-container__button-cancel");
-				buttonCancel.textContent = "Cancel";
-				// Button "Delete"
-				const buttonDelete = document.createElement("button");
-				buttonDelete.classList.add("modal__buttons-container__button-delete");
-				buttonDelete.textContent = "Delete";
-				buttonsContainer.append(buttonCancel, buttonDelete);
-				modalContainer.append(modalText, buttonsContainer);
-				darkBackground.append(modalContainer);
-				document.body.append(darkBackground);
+			// Stop scrolling background
+			document.body.style.overflow = "hidden";
+			// Create dark background
+			const darkBackground = document.createElement("div");
+			darkBackground.style.top = window.scrollY + "px";
+			darkBackground.classList.add("dark-background");
+			// Create modal window
+			const modalContainer = document.createElement("div");
+			modalContainer.classList.add("modal");
+			// Text
+			const modalText = document.createElement("span");
+			modalText.classList.add("modal__text");
+			modalText.textContent = "Are you sure you want to delete the appointment?";
+			const buttonsContainer = document.createElement("div");
+			// Buttons container
+			buttonsContainer.classList.add("modal__buttons-container");
+			// Button "Cancel"
+			const buttonCancel = document.createElement("button");
+			buttonCancel.classList.add("modal__buttons-container__button-cancel");
+			buttonCancel.textContent = "Cancel";
+			// Button "Delete"
+			const buttonDelete = document.createElement("button");
+			buttonDelete.classList.add("modal__buttons-container__button-delete");
+			buttonDelete.textContent = "Delete";
+			buttonsContainer.append(buttonCancel, buttonDelete);
+			modalContainer.append(modalText, buttonsContainer);
+			darkBackground.append(modalContainer);
+			document.body.append(darkBackground);
 
 
-				// Event of deleting post
-				buttonDelete.addEventListener("click", async () => {
-					try {
-						await deleteVisit(this.id);
-						document.body.style.overflow = "";
-						darkBackground.remove();
-						this.element.remove();
-					} catch (err) {
-						console.log(err)
-					}
-				})
-
-				// Event of cancel deleting
-				buttonCancel.addEventListener("click",  () => {
+			// Event of deleting post
+			buttonDelete.addEventListener("click", async () => {
+				try {
+					await deleteVisit(this.id);
 					document.body.style.overflow = "";
 					darkBackground.remove();
-				})
+					this.element.remove();
+				} catch (err) {
+					console.log(err)
+				}
+			})
 
-			} catch (error) {
-				console.log(error)
-			}
+			// Event of cancel deleting
+			buttonCancel.addEventListener("click", () => {
+				document.body.style.overflow = "";
+				darkBackground.remove();
+			})
 		})
 	}
 
 	showMore() {
+		// Create additional block
+		const hideBlock = document.createElement("div");
+		hideBlock.classList.add("card__hidden");
+		hideBlock.style.display = "none";
+		// Create urgency & status block
+		const centralInfo = document.createElement("div");
+		centralInfo.classList.add("card__hidden__central");
+		// Urgency text
+		const urgencyText = document.createElement("span");
+		urgencyText.dataset.urgency = this.urgency.toLowerCase();
+		urgencyText.classList.add("card__hidden__central__urgency");
+		urgencyText.textContent = this.urgency;
+		// Status text
+		const statusText = document.createElement("span");
+		statusText.dataset.status = this.status.toLowerCase();
+		statusText.classList.add("card__hidden__central__status");
+		statusText.textContent = this.status;
+		centralInfo.append(urgencyText, statusText);
+
+		// Create purpose
+		const purposeBlock = document.createElement("div");
+		purposeBlock.classList.add("card__hidden__text-block");
+		const purposeTitle = document.createElement("span");
+		purposeTitle.classList.add("card__hidden__text-block__title");
+		purposeTitle.textContent = "Purpose:";
+		const purposeDescription = document.createElement("p");
+		purposeDescription.classList.add("card__hidden__text-block__description");
+		purposeDescription.textContent = this.purpose;
+		purposeBlock.append(purposeTitle, purposeDescription);
+		// Inserting content inside hidden block
+		hideBlock.append(centralInfo, purposeBlock);
+		// Inserting hidden block inside this.element
+		this.element.querySelector(".card__doctor").after(hideBlock);
+
 		this.buttonMore.addEventListener("click", () => {
 			if (this.buttonMore.textContent === "Show more") {
-				// Create hidden block
-				const hideBlock = document.createElement("div");
-				hideBlock.classList.add("card__hidden");
-				// Create urgency
-				const urgencyBlock = document.createElement("div");
-				urgencyBlock.classList.add("card__hidden__text-block");
-				const urgencyTitle = document.createElement("span");
-				urgencyTitle.classList.add("card__hidden__text-block__title");
-				urgencyTitle.textContent = "Urgency:";
-				const urgencyDescription = document.createElement("p");
-				urgencyDescription.classList.add("card__hidden__text-block__description");
-				urgencyDescription.textContent = this.urgency;
-				urgencyBlock.append(urgencyTitle, urgencyDescription);
-				// Create purpose
-				const purposeBlock = document.createElement("div");
-				purposeBlock.classList.add("card__hidden__text-block");
-				const purposeTitle = document.createElement("span");
-				purposeTitle.classList.add("card__hidden__text-block__title");
-				purposeTitle.textContent = "Purpose:";
-				const purposeDescription = document.createElement("p");
-				purposeDescription.classList.add("card__hidden__text-block__description");
-				purposeDescription.textContent = this.purpose;
-				purposeBlock.append(purposeTitle, purposeDescription);
-
+				hideBlock.style.display = "flex";
 				this.buttonMore.textContent = "Show less"
-				// Inserting content inside hidden block
-				hideBlock.append(urgencyBlock, purposeBlock);
-				// Inserting hidden block inside this.element
-				this.element.querySelector(".card__doctor").after(hideBlock);
-
 			} else {
-				const hideBlock = this.element.querySelector(".card__hidden");
-				hideBlock.remove();
+				hideBlock.style.display = "none";
 				this.buttonMore.textContent = "Show more";
 			}
 		})

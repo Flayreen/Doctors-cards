@@ -100,6 +100,19 @@
 	padding: 16px;
 	box-sizing: border-box;
 
+	&--high {
+		background-color: rgba(255, 86, 53, 0.12);
+		border-color: #FF5635;
+	}
+	&--normal {
+		background-color: rgba(255, 186, 52, 0.05);
+		border-color: #FFBA34;
+	}
+	&--low {
+		background-color: rgba(3, 197, 233, 0.03);
+		border-color: #03C5E9;
+	}
+
 	&__title {
 		@include styleText(24px, 500, 150%, $primary-color, capitalize, center);
 		margin-bottom: 12px;
@@ -123,6 +136,47 @@
 		gap: 16px;
 		margin-bottom: 16px;
 
+		&__central {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			justify-content: center;
+			gap: 16px;
+
+			&__urgency {
+				@include styleText(16px, 500, 150%, #000, none, central);
+				display: flex;
+				gap: 12px;
+
+				&::before {
+					content: "Urgency:";
+					@include styleText(16px, 400, 150%, rgba(51, 51, 51, 0.56), none, center);
+					display: inline;
+				}
+			}
+
+			&__status {
+				@include styleText(16px, 500, 150%, #000, none, central);
+				display: flex;
+				gap: 12px;
+
+				&::before {
+					content: "Status:";
+					@include styleText(16px, 400, 150%, rgba(51, 51, 51, 0.56), none, center);
+					display: inline;
+				}
+			}
+
+			&::after {
+				content: '';
+				display: block;
+				width: 100%;
+				min-width: 40px;
+				height: 1px;
+				background-color: rgba(78, 124, 239, 0.30);
+			}
+		}
+
 		&__text-block {
 			display: flex;
 			gap: 12px;
@@ -137,13 +191,6 @@
 			}
 		}
 
-		&::before {
-			content: '';
-			display: block;
-			width: 100%;
-			height: 1px;
-			background-color: rgba(78, 124, 239, 0.30);
-		}
 	}
 
 	&__button-delete {
