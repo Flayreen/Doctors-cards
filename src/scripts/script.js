@@ -20,3 +20,19 @@ document.querySelector('.filters__wrapper').addEventListener('input', () => {
 
 // слухач для кнопки очищення фільтрів:
 document.querySelector('#filter-reset').addEventListener('click',filtersReset);
+
+
+const card1 = new Visit("Vakarchuk Oleg", "high", "open", "I wanna leave the job", "I dont know", "Cardiologist", "1");
+card1.render();
+const card2 = new Visit("John Cena", "normal", "open", "I wanna leave the job", "I dont know", "Cardiologist", "1");
+card2.render();
+const card3 = new Visit("Vakarchuk Oleg", "high", "open", "I wanna leave the job", "I dont know", "Cardiologist", "1");
+card3.render();
+const card4 = new Visit("John Cena", "low", "open", "I wanna leave the job", "I dont know", "Cardiologist", "1");
+card4.render();
+const card5 = new Visit("Vakarchuk Oleg", "low", "open", "I wanna leave the job", "I dont know", "Cardiologist", "1");
+card5.render();
+const card6 = new Visit("John Cena", "normal", "open", "I wanna leave the job", "I dont know", "Cardiologist", "1");
+card6.render();
+const card7 = new Visit("Vakarchuk Oleg", "low", "open", "I wanna leave the job", "I dont know", "Cardiologist", "1");
+card7.render();
