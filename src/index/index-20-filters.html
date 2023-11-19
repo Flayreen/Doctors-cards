@@ -1,21 +1,37 @@
 <section class="filters">
-	<div class="container">
-		<div class="filters__title">Appointments</div>
-		
-		<div class="filters__wrapper">
-			<input class="py-2 border-right-0 border" type="search" placeholder="Search" id="search">
-			
-			<div class="btn-group filters__status" role="group" aria-label="Filter by status">
-				<button type="button" class="btn btn-sm btn-light">Open</button>
-				<button type="button" class="btn btn-sm btn-light">Done</button>
-			</div>
-			
-			<div class="btn-group filters__urgency" role="group" aria-label="Filter by urgency of visit">
-				<button type="button" class="btn btn-sm btn-light">High</button>
-				<button type="button" class="btn btn-sm btn-light">Medium</button>
-				<button type="button" class="btn btn-sm btn-light">Low</button>
-			</div>
+	<div class="container row my-3 pe-0">
+		<div class="filters__title col-md-4 my-2 fw-bolder fs-3">
+			Візити
+			<span class="shown-cards-count ms-1 fw-normal text-opacity-50"></span>
 		</div>
+		
+		
+		<div class="filters__wrapper col-md-8 row pe-0 me-0">
+			<div class="col-sm-4 my-1">
+					<input class="form-control border" type="search" placeholder="Filter" id="filter-input" aria-label="Filter by text">
+			</div>
+			
+			<div class="col-sm-8 my-1 row ms-0 align-items-center">
+				<div class="col-5">
+					<select class="form-select" aria-label="Filter by status" id="filter-status">
+						<option value="any">Any status</option>
+						<option value="open">Open</option>
+						<option value="done">Done</option>
+					</select>
+				</div>
+				<div class="col-6">
+					<select class="form-select" aria-label="Filter by urgency" id="filter-urgency">
+						<option value="any">Any urgency</option>
+						<option value="low">Non-urgent</option>
+						<option value="medium">Priority</option>
+						<option value="high">Urgent</option>
+					</select>
+				</div>
+				<button type="button" id="filter-reset" class="btn btn-light col-1 border">×</button>
+			</div>
+			
+		</div>
+		
 	
 	
 	</div>

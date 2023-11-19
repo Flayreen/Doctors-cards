@@ -1,21 +1,82 @@
-.filters {
-	padding: 16px 42px;
+.filters .container {
+	margin: 0 auto;
+}
+
+#filter-urgency:focus {
+	outline: none;
+}
+
+
+
+// SELECT стилізується залежно від обраного OPTION:
+
+#filter-urgency:has(> option[value="high"]:checked) {
+	background-color: red;
+	color: white;
+	font-weight: bold;
+}
+
+#filter-urgency:has(> option[value="medium"]:checked) {
+	background-color: orange;
+	font-weight: bold;
+}
+
+#filter-urgency:has(> option[value="low"]:checked) {
+	font-weight: bold;
+}
+
+#filter-status:has(> option[value="open"]:checked) {
+	font-weight: bold;
+}
+
+#filter-status:has(> option[value="done"]:checked) {
+	//background-color: lightgrey;
+	opacity: 0.4;
+	font-weight: bold;
+}
+
+//	================	move this into "mainblock":
+
+.card {
+	margin-block: 1em;
+	padding: 1em;
 	
-	& .container {
-		display: flex;
-		justify-content: space-between;
-		
+	&[data-urgency="high"] {
+		border-left: 6px solid red;
 	}
 	
+	&[data-urgency="medium"] {
+		border-left: 6px solid orange;
+	}
+	
+	&[data-status="done"] {
+		opacity: 0.4;
+	}
+}
+
+
+
+
+/*		//		THIS IS JUST SOME DELETABLE SHIT:
+.filters {
+
+	padding: 16px 42px;
+
+	& .container {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1em 2em;
+		justify-content: space-between;
+
+	}
+
 	&__title {
 		color: #333;
-		
 		font-size: 28px;
 		font-weight: 500;
 		line-height: 150%;
-		// media query -> display:none on mobile
 	}
-	
+
 	&__wrapper {
 		display: flex;
 		flex-wrap: wrap;
@@ -24,6 +85,17 @@
 	}
 	&__urgency {
 		font-weight: 500;
-		
+
 	}
 }
+
+
+
+.form-select {
+	width: min-content;
+}
+
+.form-control {
+	width: 18ch;
+}
+*/
