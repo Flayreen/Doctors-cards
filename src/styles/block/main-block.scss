@@ -1,0 +1,273 @@
+// Картки тут.
+
+@media screen and (min-width: $ui-bp-min) {
+	.main-block {
+		padding: 0 16px;
+		box-sizing: border-box;
+
+		.container--main {
+			display: grid;
+			grid-template-columns: repeat(1, 1fr);
+			grid-gap: 16px;
+		}
+	}
+
+	.container--main__column {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
+
+	.column--1 {
+		display: flex;
+	}
+	.column--2 {
+		display: none;
+	}
+	.column--3 {
+		display: none;
+	}
+}
+
+
+@media screen and (min-width: 650px) {
+	.main-block {
+		padding: 0 32px;
+		box-sizing: border-box;
+
+		.container--main {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			grid-gap: 16px;
+		}
+	}
+
+	.container--main__column {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
+
+	.column--1 {
+		display: flex;
+	}
+	.column--2 {
+		display: flex;
+	}
+	.column--3 {
+		display: none;
+	}
+}
+
+
+@media screen and (min-width: $ui-bp-desk-min) {
+	.main-block {
+		padding: 0 42px;
+		box-sizing: border-box;
+
+		.container--main {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			grid-gap: 24px;
+		}
+	}
+
+	.container--main__column {
+		display: flex;
+		flex-direction: column;
+		gap: 24px;
+	}
+
+	.column--1 {
+		display: flex;
+	}
+	.column--2 {
+		display: flex;
+	}
+	.column--3 {
+		display: flex;
+	}
+}
+
+
+
+.card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border: 1px solid $primary-color;
+	border-radius: 10px;
+	padding: 16px;
+	box-sizing: border-box;
+
+	&--high {
+		background-color: rgba(255, 86, 53, 0.12);
+		border-color: #FF5635;
+	}
+	&--normal {
+		background-color: rgba(255, 186, 52, 0.05);
+		border-color: #FFBA34;
+	}
+	&--low {
+		background-color: rgba(3, 197, 233, 0.03);
+		border-color: #03C5E9;
+	}
+
+	&__title {
+		@include styleText(24px, 500, 150%, $primary-color, capitalize, center);
+		margin-bottom: 12px;
+	}
+
+	&__doctor {
+		@include styleText(16px, 500, 150%, black, capitalize, center);
+		margin-bottom: 16px;
+		&::before {
+			content: 'Doctor:';
+			display: inline;
+			@include styleText(16px, 400, 150%, rgba(0, 0, 0, 0.56), capitalize, center);
+			margin-right: 12px;
+		}
+	}
+
+	&__hidden {
+		display: flex;
+		width: 100%;
+		flex-direction: column;
+		gap: 16px;
+		margin-bottom: 16px;
+
+		&__central {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			justify-content: center;
+			gap: 16px;
+
+			&__urgency {
+				@include styleText(16px, 500, 150%, #000, none, central);
+				display: flex;
+				gap: 12px;
+
+				&::before {
+					content: "Urgency:";
+					@include styleText(16px, 400, 150%, rgba(51, 51, 51, 0.56), none, center);
+					display: inline;
+				}
+			}
+
+			&__status {
+				@include styleText(16px, 500, 150%, #000, none, central);
+				display: flex;
+				gap: 12px;
+
+				&::before {
+					content: "Status:";
+					@include styleText(16px, 400, 150%, rgba(51, 51, 51, 0.56), none, center);
+					display: inline;
+				}
+			}
+
+			&::after {
+				content: '';
+				display: block;
+				width: 100%;
+				min-width: 40px;
+				height: 1px;
+				background-color: rgba(78, 124, 239, 0.30);
+			}
+		}
+
+		&__text-block {
+			display: flex;
+			gap: 12px;
+
+			&__title {
+				@include styleText(16px, 400, 150%, rgba(51, 51, 51, 0.56), none, center);
+			}
+
+			&__description {
+				@include styleText(16px, 500, 150%, #000, none, left);
+				margin: 0;
+			}
+		}
+
+	}
+
+	&__button-delete {
+		display: inline-block;
+		position: absolute;
+		top: 12px;
+		right: 12px;
+		background-color: rgba(255, 255, 255, 0);
+		border: none;
+
+		&:hover path {
+			stroke: $primary-color_hover;
+		}
+	}
+
+	&__buttons-container {
+		display: flex;
+		gap: 8px;
+		&__button-more {
+			@include primaryButton(110px, 37px);
+
+			&:hover {
+				background-color: $primary-color_hover;
+			}
+		}
+
+		&__button-edit {
+			@include secondaryButton(110px, 37px);
+
+			&:hover {
+				border-color: $primary-color_hover;
+				color: $primary-color_hover;
+			}
+		}
+	}
+}
+
+.dark-background {
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.47);
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.modal {
+	width: fit-content;
+	height: fit-content;
+	background-color: white;
+	padding: 32px 24px 24px;
+	box-sizing: border-box;
+	border-radius: 25px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 24px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	&__text {
+		@include styleText(16px, 400, 150%, rgba(0, 0, 0, 0.80), none, center);
+	}
+
+	&__buttons-container {
+		display: flex;
+		gap: 16px;
+
+		&__button-cancel {
+			@include secondaryButton(167px, 48px)
+		}
+
+		&__button-delete {
+			@include primaryButton(167px, 48px);
+			background-color: #EB3E3E;
+		}
+	}
+}
