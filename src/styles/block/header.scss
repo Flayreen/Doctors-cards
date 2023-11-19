@@ -1,17 +1,141 @@
-.header {
-	padding: 16px 42px;
-	border-bottom: 1px solid #C2D3FE;
-	background: rgba(194, 211, 254, 0.10);
+.container {
+	margin: 0 auto;
 }
 
-.btn__login{
-	width: 120px;
-	height: 48px;
-	//display: none;
+.header {
+	padding: 16px 16px;
+	box-sizing: border-box;
+	border-bottom: 1px solid #C2D3FE;
+	background: rgba(194, 211, 254, 0.10);
+
+	&_logo__e-health {
+		width: 106px;
+		height: 24px;
+		background-image: url(/src/images/Logo.png);
+	}
+
+	&_logo__exit {
+		display: none;
+	}
 }
-.btn__create{
-	display: none;
+
+.btn {
+	&__login {
+		@include primaryButton (124px, 48px);
+		display: flex;//flex
+	}
+
+	&__create {
+		@include primaryButton (218px, 48px);
+		display: none;//flex
+		white-space: nowrap;
+	}
+
+	&__out {
+		@include secondaryButton (89px, 48px);
+		display: none;//flex
+		white-space: nowrap;
+		align-items: center;
+		justify-content: center;
+		margin-left: 16px;
+	}
 }
-.btn__out{
-	display: none;
+
+//----------mobile max 480 px----------//
+
+@media screen and (min-width:$ui-bp-min) {
+	.container {
+		max-width: $ui-bp-mob-max ;
+	}
+
+	.wrapper-button {
+		@include display-flex-column-align-center;
+	}
+
+	.header {
+		&_menu {
+			@include display-flex-column-align-center;
+		}
+
+		&_logo {
+			display: flex;
+			justify-content: center; ////log out -none///center///space-beetwen
+			width: 328px;
+
+			&__exit {
+				display: none;//log out -none
+				width: 69px;
+				height: 48px;
+				background-image: url(/src/images/log-out-2\ 1.png);
+				background-repeat: no-repeat;
+				background-position: center center;
+				background-color: rgba(194, 211, 254, 0.14);
+				border: 1px solid rgba(78, 124, 239, 1);
+				border-radius: 8px;
+			}
+		}
+	}
+
+	.btn {
+		justify-content: center;
+		align-items: center;
+
+		&__login {
+			@include primaryButton (328px, 48px);
+			margin: 16px 0;
+		}
+
+		&__out {
+			display: none; //зникає
+		}
+
+		&__create {
+			@include primaryButton (328px, 48px);
+			margin: 16px 0;
+		}
+
+	}
+}
+//----------481-992 tablet//
+
+@media screen and (min-width:$ui-bp-tab-min) {
+	.container {
+		max-width: $ui-bp-tab-max;
+	}
+
+	.header {
+		&_menu {
+			display: flex;
+			justify-content: space-between;
+			flex-direction: row;
+		}
+
+		&_logo {
+			justify-content: flex-start;
+			&__exit {
+				display: none;
+			}
+		}
+	}
+
+	.btn {
+		&__login {
+			@include primaryButton (124px, 48px);
+		}
+
+		&__create {
+			@include primaryButton (218px, 48px);
+		}
+
+		&__out {
+			@include secondaryButton (89px, 48px);
+		}
+	}
+
+	.wrapper-button {
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-end;
+		margin-left: 16px;
+	}
 }
