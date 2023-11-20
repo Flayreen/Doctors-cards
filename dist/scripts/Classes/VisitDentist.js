@@ -1,4 +1,5 @@
 import Visit from "./Visit.js";
+
 class VisitDentist extends Visit {
 	constructor(fullName, urgency, status, description, purpose, id, lastVisit){
 		super(fullName, urgency, status, description, purpose, id);

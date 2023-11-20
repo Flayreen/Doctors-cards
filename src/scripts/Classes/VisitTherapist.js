@@ -1,4 +1,5 @@
 import Visit from "./Visit.js";
+
 class VisitTherapist extends Visit {
 	constructor(fullName, urgency, status, description, purpose, id, age){
 		super(fullName, urgency, status, description, purpose, id);
@@ -39,7 +40,7 @@ class VisitTherapist extends Visit {
 			block.append(blockTitle, blockValue);
 			this.element.querySelector(".card__hidden").append(block)
 		};
-		hideInfo("Age:", this.age);
+		hideInfo("Age:", `${this.age} years`);
 	}
 }
 
