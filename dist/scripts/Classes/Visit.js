@@ -1,13 +1,12 @@
 import deleteVisit from "../API/deleteVisit.js";
 
 class Visit {
-	constructor(fullName, urgency, status, description, purpose, doctor, id) {
+	constructor(fullName, urgency, status, description, purpose, id) {
 		this.fullName = fullName;
 		this.urgency = urgency;
 		this.status = status;
 		this.description = description;
 		this.purpose = purpose;
-		this.doctor = doctor;
 		this.id = id;
 
 		this.element = document.createElement("div");
@@ -19,13 +18,9 @@ class Visit {
 	render() {
 		// Create card container
 		this.element.classList.add("card");
-		if (this.urgency.toLowerCase() === "high") {
-			this.element.classList.add("card--high");
-		} else if (this.urgency.toLowerCase() === "normal") {
-			this.element.classList.add("card--normal");
-		} else {
-			this.element.classList.add("card--low");
-		}
+		this.element.dataset.urgency = this.urgency.toLowerCase();
+		this.element.dataset.status = this.status.toLowerCase();
+
 		// Create card title (patient's name)
 		const cardTitle = document.createElement("span");
 		cardTitle.classList.add("card__title");
@@ -57,8 +52,8 @@ class Visit {
 		containerMain.append(this.element);
 
 
-		this.delete();
-		this.showMore();
+		// this.delete();
+		// this.showMore();
 	}
 
 	delete() {
@@ -96,10 +91,12 @@ class Visit {
 			// Event of deleting post
 			buttonDelete.addEventListener("click", async () => {
 				try {
-					await deleteVisit(this.id);
-					document.body.style.overflow = "";
-					darkBackground.remove();
-					this.element.remove();
+					const response = await deleteVisit(this.id);
+					if (response.status === 200) {
+						document.body.style.overflow = "";
+						darkBackground.remove();
+						this.element.remove();
+					}
 				} catch (err) {
 					console.log(err)
 				}
@@ -123,28 +120,31 @@ class Visit {
 		centralInfo.classList.add("card__hidden__central");
 		// Urgency text
 		const urgencyText = document.createElement("span");
-		urgencyText.dataset.urgency = this.urgency.toLowerCase();
 		urgencyText.classList.add("card__hidden__central__urgency");
 		urgencyText.textContent = this.urgency;
 		// Status text
 		const statusText = document.createElement("span");
-		statusText.dataset.status = this.status.toLowerCase();
 		statusText.classList.add("card__hidden__central__status");
 		statusText.textContent = this.status;
 		centralInfo.append(urgencyText, statusText);
+		hideBlock.append(centralInfo);
 
-		// Create purpose
-		const purposeBlock = document.createElement("div");
-		purposeBlock.classList.add("card__hidden__text-block");
-		const purposeTitle = document.createElement("span");
-		purposeTitle.classList.add("card__hidden__text-block__title");
-		purposeTitle.textContent = "Purpose:";
-		const purposeDescription = document.createElement("p");
-		purposeDescription.classList.add("card__hidden__text-block__description");
-		purposeDescription.textContent = this.purpose;
-		purposeBlock.append(purposeTitle, purposeDescription);
-		// Inserting content inside hidden block
-		hideBlock.append(centralInfo, purposeBlock);
+		// Create additional info
+		const hideInfo = (title, value) => {
+			const block = document.createElement("div");
+			block.classList.add("card__hidden__text-block");
+			const blockTitle = document.createElement("span");
+			blockTitle.classList.add("card__hidden__text-block__title");
+			blockTitle.textContent = title;
+			const blockValue = document.createElement("p");
+			blockValue.classList.add("card__hidden__text-block__description");
+			blockValue.textContent = value;
+			block.append(blockTitle, blockValue);
+			hideBlock.append(block)
+		};
+		hideInfo("Purpose:", this.purpose);
+		hideInfo("Description:", this.description);
+
 		// Inserting hidden block inside this.element
 		this.element.querySelector(".card__doctor").after(hideBlock);
 
