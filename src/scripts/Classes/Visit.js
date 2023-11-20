@@ -1,13 +1,12 @@
 import deleteVisit from "../API/deleteVisit.js";
 
 class Visit {
-	constructor(fullName, urgency, status, description, purpose, doctor, id) {
+	constructor(fullName, urgency, status, description, purpose, id) {
 		this.fullName = fullName;
 		this.urgency = urgency;
 		this.status = status;
 		this.description = description;
 		this.purpose = purpose;
-		this.doctor = doctor;
 		this.id = id;
 
 		this.element = document.createElement("div");
@@ -57,8 +56,8 @@ class Visit {
 		containerMain.append(this.element);
 
 
-		this.delete();
-		this.showMore();
+		// this.delete();
+		// this.showMore();
 	}
 
 	delete() {

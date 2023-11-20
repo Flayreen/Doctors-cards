@@ -135,6 +135,8 @@
 		flex-direction: column;
 		gap: 16px;
 		margin-bottom: 16px;
+		overflow: hidden;
+		text-overflow: ellipsis;
 
 		&__central {
 			display: flex;
@@ -182,7 +184,7 @@
 			gap: 12px;
 
 			&__title {
-				@include styleText(16px, 400, 150%, rgba(51, 51, 51, 0.56), none, center);
+				@include styleText(16px, 400, 150%, rgba(51, 51, 51, 0.56), none, left);
 			}
 
 			&__description {
