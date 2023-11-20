@@ -45,9 +45,9 @@ class VisitCardiologist extends Visit {
 		};
 
 		hideInfo("Diseases:", this.disease);
-		hideInfo("Normal pressure:", this.pressure);
+		hideInfo("St. pressure:", `${this.pressure} mmHg`);
+		hideInfo("Age:", `${this.age} years`);
 		hideInfo("BMI:", this.bmi);
-		hideInfo("Age:", this.age);
 	}
 }
 
