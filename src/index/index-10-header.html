@@ -29,17 +29,18 @@
 	<div class="container">
 	<div class="header_menu">
 		<div class=" d-flex align-items-center text-decoration-none header_logo">
-			<div class="header_logo__e-health"></div>
-			<button type= "button" class="header_logo__exit"></button>
+			<div class="header_logo__e-health"><img class="img-logo" src="../images/Logo.png" alt=""></div>
+			<button type= "button" class="header_logo__exit"><img src="../images/log-out-2 1.png" alt=""></button>
 		</div>
 			<div class=" wrapper-button ">
-				<button type="button" class=" btn  btn__create"> &plus; Create appointment</button>
-				<button type="button" class=" btn btn__out">Log out</button>
-				<button type="button" class=" btn btn__login " data-bs-toggle="modal"
+				<button type="button" class="btn btn__create"> &plus; Create appointment</button>
+				<button type="button" class="btn btn__out ">Log out</button>
+				<button type="button" class="btn  btn__login " data-bs-toggle="modal"
 					data-bs-target="#exampleModal">Login</button>
 			</div>
 		</div>
-			<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+		<!--modal_ -->
+			<div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
 	aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -53,11 +54,13 @@
 						<label for="exampleInputEmail1" class="form-label">Email</label>
 						<input name="emailUser" type="email" class="form-control" id="exampleInputEmail1"
 							aria-describedby="emailHelp">
+							<span class="error-information"></span>
 					</div>
 					<div class="mb-3">
 						<label for="exampleInputPassword1" class="form-label">Password</label>
 						<input name="passwordUser" type="password" class="form-control"
 							id="exampleInputPassword1">
+							<span class="error-information"></span>
 					</div>
 					<div>
 						<button type="submit" class="btn btn-primary">Log in</button>

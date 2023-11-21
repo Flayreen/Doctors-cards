@@ -7,11 +7,13 @@
 	box-sizing: border-box;
 	border-bottom: 1px solid #C2D3FE;
 	background: rgba(194, 211, 254, 0.10);
+	&_logo{
+		justify-content: center;
+	}
 
 	&_logo__e-health {
 		width: 106px;
 		height: 24px;
-		background-image: url(/src/images/Logo.png);
 	}
 
 	&_logo__exit {
@@ -22,18 +24,18 @@
 .btn {
 	&__login {
 		@include primaryButton (124px, 48px);
-		display: flex;//flex
+		display: flex;
 	}
 
 	&__create {
 		@include primaryButton (218px, 48px);
-		display: none;//flex
 		white-space: nowrap;
+		display: none;
 	}
 
 	&__out {
+		display: none;
 		@include secondaryButton (89px, 48px);
-		display: none;//flex
 		white-space: nowrap;
 		align-items: center;
 		justify-content: center;
@@ -58,20 +60,17 @@
 		}
 
 		&_logo {
-			display: flex;
-			justify-content: center; ////log out -none///center///space-beetwen
 			width: 328px;
 
 			&__exit {
-				display: none;//log out -none
 				width: 69px;
 				height: 48px;
-				background-image: url(/src/images/log-out-2\ 1.png);
 				background-repeat: no-repeat;
 				background-position: center center;
 				background-color: rgba(194, 211, 254, 0.14);
 				border: 1px solid rgba(78, 124, 239, 1);
 				border-radius: 8px;
+				margin-left: auto;
 			}
 		}
 	}
@@ -83,10 +82,6 @@
 		&__login {
 			@include primaryButton (328px, 48px);
 			margin: 16px 0;
-		}
-
-		&__out {
-			display: none; //зникає
 		}
 
 		&__create {
@@ -113,7 +108,8 @@
 		&_logo {
 			justify-content: flex-start;
 			&__exit {
-				display: none;
+				position: absolute; 
+				visibility: hidden;
 			}
 		}
 	}
@@ -139,3 +135,22 @@
 		margin-left: 16px;
 	}
 }
+
+@media screen and (max-width:481px) {
+	.btn__out {
+		position: absolute;
+		visibility: hidden;
+	}
+
+	.header_logo__exit {
+		display: none;
+	}
+
+	.header_logo {
+		justify-content: center;
+	}
+}
+	.fade:not(.show) {
+	display: none !important;
+}
+	
