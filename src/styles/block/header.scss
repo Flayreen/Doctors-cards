@@ -108,7 +108,7 @@
 		&_logo {
 			justify-content: flex-start;
 			&__exit {
-				position: absolute; 
+				position: absolute;
 				visibility: hidden;
 			}
 		}
@@ -153,4 +153,4 @@
 	.fade:not(.show) {
 	display: none !important;
 }
-	
+

@@ -35,67 +35,29 @@
 	font-weight: bold;
 }
 
-//	================	move this into "mainblock":
+
+
+
+
+
+//	========	СТИЛІ НИЖЧЕ ФАРБУЮТЬ КАРТКУ ЗАЛЕЖНО ВІД ЇЇ ДАТА-АТРИБУТІВ.
+//	========	move it into "mainblock.scss":
 
 .card {
-	margin-block: 1em;
-	padding: 1em;
-	
 	&[data-urgency="high"] {
 		border-left: 6px solid red;
+		// or replace with your styling... :)
 	}
 	
 	&[data-urgency="medium"] {
 		border-left: 6px solid orange;
+		// or replace with your styling... :)
 	}
 	
 	&[data-status="done"] {
 		opacity: 0.4;
+		// or replace with your styling... :)
 	}
 }
-
-
-
-
-/*		//		THIS IS JUST SOME DELETABLE SHIT:
-.filters {
-
-	padding: 16px 42px;
-
-	& .container {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 1em 2em;
-		justify-content: space-between;
-
-	}
-
-	&__title {
-		color: #333;
-		font-size: 28px;
-		font-weight: 500;
-		line-height: 150%;
-	}
-
-	&__wrapper {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-		gap: 1em;
-	}
-	&__urgency {
-		font-weight: 500;
-
-	}
-}
-
-
-
-.form-select {
-	width: min-content;
-}
-
-.form-control {
-	width: 18ch;
-}
-*/
+//	========	move it into "mainblock.scss":
+// 	========	СТИЛІ ВИЩЕ ФАРБУЮТЬ КАРТКУ ЗАЛЕЖНО ВІД ЇЇ ДАТА-АТРИБУТІВ.
