@@ -1,6 +1,7 @@
 # Project-specific #
 ###########
 src/index.html
+dist
 
 # Custom #
 ###########

@@ -34,6 +34,9 @@ const mainBlock = document.querySelector(".main-block");
 document.querySelector('#filter-reset').addEventListener('click', filtersReset);
 
 
+
+//робота з формою
+
 formLogin.addEventListener('submit', (e) => {
 	e.preventDefault();
 	login ();
@@ -45,50 +48,8 @@ headerLogoEhealth.addEventListener("click" , (e) => {
 	logOut();
 })
 
-export // API:
-//import postVisit from "./API/postVisit.js";
-import getVisits from "./API/getVisits.js";
-import getToken from "./API/getToken.js";
-import postVisit from "./API/postVisit.js";
+export {btnLogin,btnCreate,btnOut,headerLogoExit,TOKEN_FROM_LOCALSTORAGE,formLogin,getToken,mainBlock,getVisits}
 
-//	CLASSES:
-import Visit from "./Classes/Visit.js";
-import VisitCardiologist from "./Classes/VisitCardiologist.js";
-import VisitDentist from "./Classes/VisitDentist.js";
-import VisitTherapist from "./Classes/VisitTherapist.js";
-
-//	FUNCTIONS:
-import { filterCards, filtersReset } from "./functions/filter.js";
-import visitCardiologist from "./Classes/VisitCardiologist.js";
-import visitDentist from "./Classes/VisitDentist.js";
-
-
-
-// єдиний слухач для всіх фільтрів:
-document.querySelector('.filters__wrapper').addEventListener('input', () => {
-	filterCards('.mainblock .container');
-});
-
-// слухач для кнопки очищення фільтрів:
-document.querySelector('#filter-reset').addEventListener('click', filtersReset);
-
-
-//робота з формою
-const formLogin = document.getElementById('form-login');
-formLogin.addEventListener('submit', (e) => {
-	e.preventDefault();
-	const formData = new FormData(formLogin);
-	const passwordUser = formData.get('passwordUser');
-	const emailUser = formData.get('emailUser');
-	let user = { email: `${emailUser}`, password: `${passwordUser}` };
-	console.log(passwordUser);
-	console.log(emailUser);
-	console.log(user);
-	getToken(user);
-	formLogin.reset();
-});
-
-let TOKEN_FROM_LOCALSTORAGE = localStorage.getItem("token");
 console.log(TOKEN_FROM_LOCALSTORAGE);
 
 
@@ -99,7 +60,7 @@ console.log(TOKEN_FROM_LOCALSTORAGE);
 const user1 = {
 	fullname: "Vakarchuk Oleg",
 	urgency: "high",
-	status: "done",
+	status: "open",
 	description: "I wanna leave the job",
 	purpose: "Review",
 	pressure: 120,
@@ -113,8 +74,8 @@ const user1 = {
 const user2 = {
 	fullname: "John Cena",
 	urgency: "medium",
-	status: "open",
-	description: "I wanna leave the job",
+	status: "done",
+	description: "I wanna die hard like John Maclain in the Nakatomi tower!!!11!1",
 	purpose: "Review",
 	lastVisit: "11.07.2007",
 	doctor: "Dentist",
@@ -125,7 +86,7 @@ const user3 = {
 	fullname: "Mary Jain",
 	urgency: "low",
 	status: "open",
-	description: "I wanna leave the job",
+	description: "I wanna sing songs and smoke pot all day every day",
 	purpose: "Review",
 	age: 30,
 	doctor: "Therapist",
@@ -136,7 +97,7 @@ const user4 = {
 	fullname: "John Wick",
 	urgency: "medium",
 	status: "open",
-	description: "I wanna leave the job",
+	description: "I wanna fly like an eagle in the sky and make eleventy million dollars a week.",
 	purpose: "Review",
 	pressure: 110,
 	bmi: 25,
