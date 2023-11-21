@@ -1,5 +1,4 @@
 // API:
-//import postVisit from "./API/postVisit.js";
 import getVisits from "./API/getVisits.js";
 import getToken from "./API/getToken.js";
 import postVisit from "./API/postVisit.js";
@@ -40,8 +39,9 @@ document.querySelector('#filter-reset').addEventListener('click', filtersReset);
 
 formLogin.addEventListener('submit', (e) => {
 	e.preventDefault();
-	login ();
+	login();
 });
+
 btnOut.addEventListener("click" , (e) => {
 	logOut();
 })
