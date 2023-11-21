@@ -1,3 +1,5 @@
+import checkToken from "../functions/checkToken.js";
+
 const ourLoginPas = {
     email: "OSD@gmail.com", 
     password: "12345"
@@ -8,10 +10,12 @@ const ourLoginPas = {
 
 async function getToken(user) {
     try {
-        let {data} = await axios.post("https://ajax.test-danit.com/api/v2/cards/login", user )
-        console.log(data)
+        let response = await axios.post("https://ajax.test-danit.com/api/v2/cards/login", user );
+        let {data} = response;
         localStorage.setItem("token", data);
-        
+        console.log(response)
+        checkToken(response);
+        return data;
     } catch (error) {
         console.log(error);
     }
