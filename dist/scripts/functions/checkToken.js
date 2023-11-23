@@ -8,8 +8,7 @@ function checkToken({status}) {
             btnCreate.style.display = "flex";
             btnOut.style.display = "flex";
             headerLogoExit.style.display = "block";
-            mainBlock.style.display = "block";
-            getVisits(TOKEN_FROM_LOCALSTORAGE);
+            mainBlock.style.display = "grid";
         } else {
             localStorage.clear();
             btnLogin.style.display = "flex";

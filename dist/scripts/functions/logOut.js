@@ -8,7 +8,7 @@ function logOut() {
 		btnOut.style.display = "none";
 		btnCreate.style.display = "none";
 		headerLogoExit.style.display = "none";
-		mainBlock.style.display = "none";
+		mainBlock.innerHTML = "";
 	}
 	catch (error) {
 		console.log(error)
