@@ -1,5 +1,5 @@
 
-import { btnLogin, btnOut, btnCreate, headerLogoExit, mainBlock } from "../script.js";
+import { btnLogin, btnOut, btnCreate, headerLogoExit, mainBlock } from "../variables.js";
 
 function logOut() {
 	try {
@@ -13,7 +13,6 @@ function logOut() {
 	catch (error) {
 		console.log(error)
 	}
-
 }
 
 export default logOut;
