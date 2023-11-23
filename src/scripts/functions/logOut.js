@@ -1,14 +1,13 @@
 
-import { btnLogin, btnOut, btnCreate, headerLogoExit, mainBlock } from "../script.js";
+import { btnLogin, btnOut, btnCreate, headerLogoExit} from "../script.js";
 
 function logOut() {
 	try {
-		localStorage.clear();
+		localStorage.removeItem("token");
 		btnLogin.style.display = "flex";
 		btnOut.style.display = "none";
 		btnCreate.style.display = "none";
 		headerLogoExit.style.display = "none";
-		mainBlock.style.display = "none";
 	}
 	catch (error) {
 		console.log(error)

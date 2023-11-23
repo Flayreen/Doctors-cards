@@ -1,7 +1,7 @@
 
-import {getToken,formLogin} from "../script.js";
-
+import {getToken} from "../script.js";
 function login () {
+    const formLogin = document.querySelector("#formLogin");
 	const formData = new FormData(formLogin);
 	const passwordUser = formData.get('passwordUser');
 	const emailUser = formData.get('emailUser');

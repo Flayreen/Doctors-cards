@@ -1,5 +1,5 @@
 
-import { btnLogin, btnCreate, btnOut,headerLogoExit,mainBlock,getVisits, TOKEN_FROM_LOCALSTORAGE } from "../script.js";
+import { btnLogin, btnCreate, btnOut,headerLogoExit,mainBlock,getVisits} from "../script.js";
 
 function checkToken({status}) {
     try{
@@ -9,7 +9,7 @@ function checkToken({status}) {
             btnOut.style.display = "flex";
             headerLogoExit.style.display = "block";
             mainBlock.style.display = "block";
-            getVisits(TOKEN_FROM_LOCALSTORAGE);
+            getVisits();
         } else {
             localStorage.clear();
             btnLogin.style.display = "flex";

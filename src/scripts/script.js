@@ -8,6 +8,8 @@ import Visit from "./Classes/Visit.js";
 import VisitCardiologist from "./Classes/VisitCardiologist.js";
 import VisitDentist from "./Classes/VisitDentist.js";
 import VisitTherapist from "./Classes/VisitTherapist.js";
+import ModalLogin from "./Classes/ModalLogin.js";
+import ModalLogOut from "./Classes/ModalLogOut.js";
 
 //	FUNCTIONS:
 import { filterCards, filtersReset } from "./functions/filter.js";
@@ -35,22 +37,8 @@ document.querySelector('#filter-reset').addEventListener('click', filtersReset);
 
 
 
-//робота з формою
+export {btnLogin,btnCreate,btnOut,headerLogoExit,formLogin,getToken,mainBlock,getVisits}
 
-formLogin.addEventListener('submit', (e) => {
-	e.preventDefault();
-	login ();
-});
-btnOut.addEventListener("click" , (e) => {
-	logOut();
-})
-headerLogoEhealth.addEventListener("click" , (e) => {
-	logOut();
-})
-
-export {btnLogin,btnCreate,btnOut,headerLogoExit,TOKEN_FROM_LOCALSTORAGE,formLogin,getToken,mainBlock,getVisits}
-
-console.log(TOKEN_FROM_LOCALSTORAGE);
 
 
 
