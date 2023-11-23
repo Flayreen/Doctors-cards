@@ -130,20 +130,21 @@ class Visit {
 		hideBlock.append(centralInfo);
 
 		// Create additional info
-		const hideInfo = (title, value) => {
+		const hideInfo = (title, value, selector) => {
 			const block = document.createElement("div");
 			block.classList.add("card__hidden__text-block");
 			const blockTitle = document.createElement("span");
 			blockTitle.classList.add("card__hidden__text-block__title");
 			blockTitle.textContent = title;
 			const blockValue = document.createElement("p");
+			blockValue.classList.add(selector);
 			blockValue.classList.add("card__hidden__text-block__description");
 			blockValue.textContent = value;
 			block.append(blockTitle, blockValue);
 			hideBlock.append(block)
 		};
-		hideInfo("Purpose:", this.purpose);
-		hideInfo("Description:", this.description);
+		hideInfo("Purpose:", this.purpose, "js-purpose");
+		hideInfo("Description:", this.description, "js-description");
 
 		// Inserting hidden block inside this.element
 		this.element.querySelector(".card__doctor").after(hideBlock);
