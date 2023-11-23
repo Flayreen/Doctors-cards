@@ -1,5 +1,5 @@
 
-import { btnLogin, btnCreate, btnOut,headerLogoExit,mainBlock,getVisits, TOKEN_FROM_LOCALSTORAGE } from "../script.js";
+import { btnLogin, btnCreate, btnOut,headerLogoExit,mainBlock} from "../variables.js";
 
 function checkToken({status}) {
     try{
