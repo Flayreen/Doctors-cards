@@ -10,14 +10,27 @@ const ourLoginPas = {
 
 async function getToken(user) {
     try {
-        let response = await axios.post("https://ajax.test-danit.com/api/v2/cards/login", user );
-        let {data} = response;
-        localStorage.setItem("token", data);
-        console.log(response)
-        checkToken(response);
-        return data;
+        const response = await axios.post("https://ajax.test-danit.com/api/v2/cards/login", user, {
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        })
+
+        if (response.status === 200) {
+            const {data} = response;
+            localStorage.setItem("token", data);
+            console.log(response);
+            checkToken(response);
+            return data;
+        }
     } catch (error) {
-        console.log(error);
+        const formLogin = document.querySelector("#form-login");
+        formLogin.insertAdjacentHTML(
+            "beforeend",
+            `<span style="display:inline-block; color:red; margin-top:12px">
+                    Incorrect email or password
+                 </span>`
+        )
     }
 }
 
