@@ -14,6 +14,7 @@ async function login () {
 	if (token !== undefined) {
 		await renderVisits(token);
 
+	/*	
 		// delete modal
 		document.querySelector(".modal-backdrop").remove();
 		modalLogin.style.display = "none";
@@ -24,7 +25,9 @@ async function login () {
 		document.body.classList.remove("modal-open");
 		document.body.style.overflow = "";
 		document.body.style.padding = "";
+		*/
 	}
+	
 }
 
 export default login

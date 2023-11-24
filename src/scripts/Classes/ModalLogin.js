@@ -1,9 +1,10 @@
 
 import login from "../functions/login.js";
+import {btnLogin} from "../variables.js";
 
 class ModalLogin {
     constructor() {
-        this.btnLogin = document.querySelector(".btn__login");
+        this.btnLogin = btnLogin;
         //black background container
         this.darkBackgroundContainer = document.createElement("div");
         //заг контейнер
@@ -72,27 +73,26 @@ class ModalLogin {
             this.body.append(this.darkBackgroundContainer, this.modalContainer)
 
         })
-        // Event of cancel deleting
+        // Event of cancel
         this.buttonCancel.addEventListener("click", () => {
             this.body.style.overflow = "";
             this.modalContainer.remove();
             this.darkBackgroundContainer.remove();
         })
-        this.formLogin.addEventListener("submit", (e) => {
+        
+        this.formLogin.addEventListener("submit", async  (e) => {
             e.preventDefault();
-            login();
             this.darkBackgroundContainer.remove();
             this.modalContainer.remove();
+            await login();
         })
+        
         this.darkBackgroundContainer.addEventListener("click", (e) => {
             this.modalContainer.remove();
             this.darkBackgroundContainer.remove();
         })
     }
 
-
-
 }
 new ModalLogin().render();
-
-export default ModalLogin;
+export  default ModalLogin

@@ -6,7 +6,7 @@ const headerLogo = document.querySelector(".header_logo");
 const headerLogoExit = document.querySelector(".header_logo__exit");
 
 // form LOGIN
-const formLogin = document.getElementById('form-login');
+const formLogin = document.getElementById('formLogin');
 const modalLogin = document.getElementById("exampleModal");
 const mainBlock = document.querySelector(".container--main");
 

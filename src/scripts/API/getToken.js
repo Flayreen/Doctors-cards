@@ -24,7 +24,7 @@ async function getToken(user) {
             return data;
         }
     } catch (error) {
-        const formLogin = document.querySelector("#form-login");
+        const formLogin = document.querySelector("#formLogin");
         formLogin.insertAdjacentHTML(
             "beforeend",
             `<span style="display:inline-block; color:red; margin-top:12px">

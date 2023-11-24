@@ -9,7 +9,8 @@ import logOut from "./functions/logOut.js";
 import login from "./functions/login.js";
 import isToken from "./functions/isToken.js";
 
-
+import ModalLogOut from "./Classes/ModalLogOut.js";
+import ModalLogin from "./Classes/ModalLogin.js";
 
 
 // Перевірка на те, чи є токен при загрузці сторінки
@@ -27,19 +28,13 @@ document.querySelector('.filters__wrapper').addEventListener('input', () => {
 document.querySelector('#filter-reset').addEventListener('click', filtersReset);
 
 
+/*
 //робота з формою
 formLogin.addEventListener('submit', async (e) => {
 	e.preventDefault();
 	await login();
 });
-
-btnOut.addEventListener("click" , () => {
-	logOut();
-})
-headerLogo.addEventListener("click" , () => {
-	logOut();
-})
-
+*/
 
 
 
