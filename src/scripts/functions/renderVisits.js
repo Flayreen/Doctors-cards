@@ -12,17 +12,17 @@ async function renderVisits(token) {
         console.log(allVisits)
         allVisits.forEach(visit => {
             if (visit.doctor.toLowerCase() === "cardiologist") {
-                const visitCard = new visitCardiologist(visit.fullName, visit.urgency, visit.status, visit.description, visit.purpose, visit.id, visit.pressure, visit.bmi, visit.disease, visit.age);
+                const visitCard = new visitCardiologist(visit.fullname, visit.urgency, visit.status, visit.description, visit.purpose, visit.id, visit.pressure, visit.bmi, visit.disease, visit.age);
                 visitCard.render();
             }
 
             if (visit.doctor.toLowerCase() === "dentist") {
-                const visitCard = new visitDentist(visit.fullName, visit.urgency, visit.status, visit.description, visit.purpose, visit.id, visit.lastVisit);
+                const visitCard = new visitDentist(visit.fullname, visit.urgency, visit.status, visit.description, visit.purpose, visit.id, visit.lastVisit);
                 visitCard.render();
             }
 
             if (visit.doctor.toLowerCase() === "therapist") {
-                const visitCard = new visitTherapist(visit.fullName, visit.urgency, visit.status, visit.description, visit.purpose, visit.id, visit.age);
+                const visitCard = new visitTherapist(visit.fullname, visit.urgency, visit.status, visit.description, visit.purpose, visit.id, visit.age);
                 visitCard.render();
             }
         })
