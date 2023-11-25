@@ -1,15 +1,15 @@
+import {mainBlock} from "../variables.js";
+
 const filterInput = document.querySelector('#filter-input');
 const filterStatus = document.querySelector('#filter-status');
 const filterUrgency = document.querySelector('#filter-urgency');
 
-export function filterCards(selector) {
-	console.log(`selector: ${selector}`)
+export function filterCards(element) {
 	toggleDefaultOptionName(filterUrgency, 'any', 'Urgency', '—— ALL ——');
 	toggleDefaultOptionName(filterStatus, 'any', 'Status', '—— ALL ——');
 	
 	const shownCardsCount = document.querySelector('.shown-cards-count');
-	const domCards = [...document.querySelector(selector).children]
-		.filter(card => card.classList.contains('card'));
+	const domCards = [...element.children].filter(card => card.classList.contains('card'));
 	console.log(domCards);
 	
 	let filteredCount = 0;
@@ -18,11 +18,11 @@ export function filterCards(selector) {
 	domCards.forEach( card => {
 		const urgency = card.dataset.urgency;
 		const status = card.dataset.status;
-		const purpose = card.querySelector('.card__hidden__text-block__title').innerText;
-		const description = card.querySelector('.card__hidden__text-block__description').innerText;
+		const purpose = card.querySelector('.js-purpose').innerText;
+		const description = card.querySelector('.js-description').innerText;
 		
-		console.log(card.querySelector('.card__hidden__text-block__description'),
-			card.querySelector('.card__hidden__text-block__description').innerText);
+		console.log(card.querySelector('.js-description'),
+			card.querySelector('.js-description').innerText);
 		
 		if (
 			( filterUrgency.value === 'any' || filterUrgency.value === urgency )
@@ -50,7 +50,7 @@ export function filtersReset() {
 	
 	toggleDefaultOptionName(filterUrgency, 'any', 'Urgency', '—— ALL ——');
 	toggleDefaultOptionName(filterStatus, 'any', 'Status', '—— ALL ——');
-	filterCards('.mainblock .container');
+	filterCards(mainBlock);
 }
 
 /**
