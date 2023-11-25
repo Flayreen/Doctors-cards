@@ -2,6 +2,7 @@
 import {formLogin, modalLogin} from "../variables.js";
 import getToken from "../API/getToken.js"
 import renderVisits from "./renderVisits.js";
+import {filterCards} from "./filter.js";
 
 async function login () {
 	const formData = new FormData(formLogin);
@@ -13,6 +14,7 @@ async function login () {
 
 	if (token !== undefined) {
 		await renderVisits(token);
+		filterCards(); // Бо після входу треба перерахувати картки.
 
 	/*	
 		// delete modal

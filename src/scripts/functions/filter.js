@@ -1,35 +1,31 @@
+import {mainBlock} from "../variables.js";
+
 const filterInput = document.querySelector('#filter-input');
 const filterStatus = document.querySelector('#filter-status');
 const filterUrgency = document.querySelector('#filter-urgency');
 
-export function filterCards(selector) {
-	console.log(`selector: ${selector}`)
+export function filterCards() {
 	toggleDefaultOptionName(filterUrgency, 'any', 'Urgency', '—— ALL ——');
 	toggleDefaultOptionName(filterStatus, 'any', 'Status', '—— ALL ——');
 	
 	const shownCardsCount = document.querySelector('.shown-cards-count');
-	const domCards = [...document.querySelector(selector).children]
-		.filter(card => card.classList.contains('card'));
-	console.log(domCards);
+	const domCards = [...mainBlock.children].filter(card => card.classList.contains('card'));
 	
 	let filteredCount = 0;
-	
 	
 	domCards.forEach( card => {
 		const urgency = card.dataset.urgency;
 		const status = card.dataset.status;
-		const purpose = card.querySelector('.card__hidden__text-block__title').innerText;
-		const description = card.querySelector('.card__hidden__text-block__description').innerText;
-		
-		console.log(card.querySelector('.card__hidden__text-block__description'),
-			card.querySelector('.card__hidden__text-block__description').innerText);
+		const patientName = card.querySelector('.card__title').innerText;
+		const purpose = card.querySelector('.js-purpose').innerText;
+		const description = card.querySelector('.js-description').innerText;
 		
 		if (
 			( filterUrgency.value === 'any' || filterUrgency.value === urgency )
 			&&
 			( filterStatus.value === 'any' || filterStatus.value === status )
 			&&
-			`${purpose} ${description}`.toLowerCase().includes(filterInput.value.toLowerCase())
+			`${patientName} ${purpose} ${description}`.toLowerCase().includes(filterInput.value.toLowerCase())
 		) {
 			card.style.display = 'flex';
 			filteredCount++;
@@ -42,16 +38,16 @@ export function filterCards(selector) {
 }
 
 export function filtersReset() {
-	console.log("BEFORE:", filterInput.value);
 	filterInput.value = '';
 	filterStatus.value = 'any';
 	filterUrgency.value = 'any';
-	console.log("AFTER:", filterInput.value);
 	
 	toggleDefaultOptionName(filterUrgency, 'any', 'Urgency', '—— ALL ——');
 	toggleDefaultOptionName(filterStatus, 'any', 'Status', '—— ALL ——');
-	filterCards('.mainblock .container');
+	filterCards();
 }
+
+
 
 /**
  * Toggles the name of the "default" option of the SELECT element based on it being selected or not selected. It does not change the value, it only toggles the name (the Element.innerTEXT) of the option that the users see.
@@ -70,3 +66,6 @@ function toggleDefaultOptionName(selectElement, defaultOptionValue, nameWhenSele
 	
 	defaultOption.innerText = (selectElement.value === defaultOptionValue) ? nameWhenSelected : nameWhenNotSelected;
 }
+
+// Після завантаження сторінки треба відобразити кількість карток:
+window.addEventListener('load', filterCards, {once: true});
