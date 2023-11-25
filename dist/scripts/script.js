@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 // єдиний слухач для всіх фільтрів:
 document.querySelector('.filters__wrapper').addEventListener('input', () => {
-	filterCards(mainBlock);
+	filterCards();
 });
 
 // слухач для кнопки очищення фільтрів:
