@@ -275,7 +275,7 @@ main {
 	}
 }
 
-.nothingfound {
+.nothingfound, .empty, .notloggedin {
 	height: 100%;
 	display: none; // "flex" for "visible" (used in filter.js)
 	flex-direction: column;

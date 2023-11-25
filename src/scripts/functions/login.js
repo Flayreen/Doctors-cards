@@ -14,7 +14,6 @@ async function login () {
 
 	if (token !== undefined) {
 		await renderVisits(token);
-		filterCards(); // Бо після входу треба перерахувати картки.
 
 		// delete modal
 		document.querySelector(".modal-backdrop").remove();

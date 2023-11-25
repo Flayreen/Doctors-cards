@@ -2,6 +2,7 @@
 ###########
 src/index.html
 dist
+/dist/
 
 # Custom #
 ###########
@@ -44,4 +45,5 @@ settings_data.json
 ehthumbs.db
 Thumbs.db
 icon?
+
 

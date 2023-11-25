@@ -5,6 +5,7 @@ import visitTherapist from "../Classes/VisitTherapist.js";
 
 // Import API
 import getVisits from "../API/getVisits.js";
+import {filterCards} from "./filter.js";
 
 async function renderVisits(token) {
     try {
@@ -25,7 +26,8 @@ async function renderVisits(token) {
                 const visitCard = new visitTherapist(visit.fullname, visit.urgency, visit.status, visit.description, visit.purpose, visit.id, visit.age);
                 visitCard.render();
             }
-        })
+        });
+        filterCards(); // Бо після рендеру треба перерахувати картки.
     } catch (error) {
         console.log(error)
     }
