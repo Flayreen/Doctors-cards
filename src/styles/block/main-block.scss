@@ -1,5 +1,7 @@
 // Картки тут.
-
+main {
+	flex-grow: 1;
+}
 @media screen and (min-width: $ui-bp-min) {
 	.main-block {
 		padding: 0 16px;
@@ -270,5 +272,25 @@
 			@include primaryButton(167px, 48px);
 			background-color: #EB3E3E;
 		}
+	}
+}
+
+.nothingfound {
+	height: 100%;
+	display: none; // "flex" for "visible" (used in filter.js)
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	
+	
+	opacity: 0.7;
+	
+	& p {
+		color: #333;
+		font-size: 24px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 150%;
+		letter-spacing: 0.48px;
 	}
 }

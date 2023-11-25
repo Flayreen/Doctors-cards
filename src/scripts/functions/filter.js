@@ -3,6 +3,8 @@ import {mainBlock} from "../variables.js";
 const filterInput = document.querySelector('#filter-input');
 const filterStatus = document.querySelector('#filter-status');
 const filterUrgency = document.querySelector('#filter-urgency');
+const nothingFound = document.querySelector('.nothingfound');
+const empty = document.querySelector('.empty');
 
 export function filterCards() {
 	toggleDefaultOptionName(filterUrgency, 'any', 'Urgency', '—— ALL ——');
@@ -35,6 +37,9 @@ export function filterCards() {
 	});
 	
 	shownCardsCount.innerText = (filteredCount === domCards.length) ? `(${domCards.length})` : `(${filteredCount} з ${domCards.length})`;
+	
+	empty.style.display = domCards.leng ? 'none' : 'flex';
+	nothingFound.style.display = filteredCount ? 'none' : 'flex';
 }
 
 export function filtersReset() {
