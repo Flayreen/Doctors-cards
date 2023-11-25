@@ -1,4 +1,5 @@
 import deleteVisit from "../API/deleteVisit.js";
+import {filterCards} from "../functions/filter.js";
 
 class Visit {
 	constructor(fullName, urgency, status, description, purpose, id) {
@@ -96,6 +97,7 @@ class Visit {
 						document.body.style.overflow = "";
 						darkBackground.remove();
 						this.element.remove();
+						filterCards(); // Бо після видалення картки треба оновити кількість карток (Eddy).
 					}
 				} catch (err) {
 					console.log(err)
