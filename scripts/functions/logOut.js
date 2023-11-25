@@ -1,5 +1,6 @@
 
 import { btnLogin, btnOut, btnCreate, headerLogoExit, mainBlock } from "../variables.js";
+import {filterCards} from "./filter.js";
 
 function logOut() {
 	try {
@@ -9,6 +10,7 @@ function logOut() {
 		btnCreate.style.display = "none";
 		headerLogoExit.style.display = "none";
 		mainBlock.innerHTML = "";
+		filterCards(); // Бо після виходу треба перерахувати картки.
 	}
 	catch (error) {
 		console.log(error)
