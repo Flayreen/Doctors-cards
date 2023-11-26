@@ -1,6 +1,6 @@
 
 import { btnLogin, btnOut, btnCreate, headerLogoExit, mainBlock } from "../variables.js";
-import {filterCards} from "./filter.js";
+import {filterCards, showHideSectionFilters} from "./filter.js";
 
 function logOut() {
 	try {
@@ -11,6 +11,7 @@ function logOut() {
 		headerLogoExit.style.display = "none";
 		mainBlock.innerHTML = "";
 		filterCards(); // Бо після виходу треба перерахувати картки.
+		showHideSectionFilters(); // Чи ховати фільтри від аноніма.
 	}
 	catch (error) {
 		console.log(error)
