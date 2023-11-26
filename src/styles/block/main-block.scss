@@ -34,7 +34,7 @@ main {
 
 @media screen and (min-width: 650px) {
 	.main-block {
-		padding: 0 32px;
+		padding: 0 16px;
 		box-sizing: border-box;
 
 		.container--main {
@@ -64,7 +64,7 @@ main {
 
 @media screen and (min-width: $ui-bp-desk-min) {
 	.main-block {
-		padding: 0 42px;
+		padding: 0 16px;
 		box-sizing: border-box;
 
 		.container--main {
@@ -104,11 +104,11 @@ main {
 	box-sizing: border-box;
 
 	&[data-urgency="high"] {
-		border-left: 6px solid red;
+		border-left: 6px solid $ui-color-red;
 	}
 
 	&[data-urgency="medium"] {
-		border-left: 6px solid orange;
+		border-left: 6px solid $ui-color-orange;
 	}
 
 	&[data-status="done"] {
@@ -274,7 +274,7 @@ main {
 		&__button-delete {
 			@include primaryButton(167px, 48px);
 			margin-inline: 0;
-			background-color: #EB3E3E;
+			background-color: $ui-color-red;
 		}
 	}
 }
