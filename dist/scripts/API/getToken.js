@@ -1,5 +1,5 @@
 import checkToken from "../functions/checkToken.js";
-
+import {formLogin} from "../variables.js";
 const ourLoginPas = {
     email: "OSD@gmail.com", 
     password: "12345"
@@ -24,7 +24,6 @@ async function getToken(user) {
             return data;
         }
     } catch (error) {
-        const formLogin = document.querySelector("#form-login");
         formLogin.insertAdjacentHTML(
             "beforeend",
             `<span style="display:inline-block; color:red; margin-top:12px">
