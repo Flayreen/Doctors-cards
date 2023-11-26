@@ -5,12 +5,26 @@
 #filter-input {
 	position: relative;
 	padding-left: 36px;
+	
 	&::before {
 		content: '';
 		position: absolute;
 		top: 0;
 		left: 4px;
-		
+	}
+	
+	&:hover, &:active {
+		box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.10);
+	}
+	&:focus {
+		box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.10);
+		border: 1px solid var($primary-color) !important;
+	}
+}
+
+#filter-status, #filter-urgency {
+	&:hover, &:active, &:focus {
+		box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.10);
 	}
 }
 
