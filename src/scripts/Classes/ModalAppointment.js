@@ -1,0 +1,8 @@
+
+class ModalAppointment {
+    constructor(props) {
+
+
+    }
+
+}
