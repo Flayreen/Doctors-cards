@@ -12,9 +12,63 @@ import isToken from "./functions/isToken.js";
 //Classes
 import ModalAttention from "./Classes/ModalAttention.js";
 import ModalLogin from "./Classes/ModalLogin.js";
+import ModalAppointment from "./Classes/ModalAppointment.js";
 
+// import postVisit from "./API/postVisit.js";
+// const user1 = {
+// 	fullname: "Vakarchuk Oleg",
+// 	urgency: "high",
+// 	status: "done",
+// 	description: "I wanna leave the job",
+// 	purpose: "Review",
+// 	pressure: 120,
+// 	bmi: 30,
+// 	disease: "Heartache",
+// 	age: 45,
+// 	doctor: "Cardiologist",
+// 	id: 1,
+// };
+//
+// const user2 = {
+// 	fullname: "John Cena",
+// 	urgency: "medium",
+// 	status: "open",
+// 	description: "I wanna leave the job",
+// 	purpose: "Review",
+// 	lastVisit: "11.07.2007",
+// 	doctor: "Dentist",
+// 	id: 2,
+// };
+//
+// const user3 = {
+// 	fullname: "Mary Jain",
+// 	urgency: "low",
+// 	status: "open",
+// 	description: "I wanna leave the job",
+// 	purpose: "Review",
+// 	age: 30,
+// 	doctor: "Therapist",
+// 	id: 3,
+// };
+//
+// const user4 = {
+// 	fullname: "John Wick",
+// 	urgency: "medium",
+// 	status: "open",
+// 	description: "I wanna leave the job",
+// 	purpose: "Review",
+// 	pressure: 110,
+// 	bmi: 25,
+// 	disease: "Heartache",
+// 	age: 50,
+// 	doctor: "Cardiologist",
+// 	id: 4,
+// };
 
-
+// postVisit(user1)
+// postVisit(user2)
+// postVisit(user3)
+// postVisit(user4)
 
 
 // Перевірка на те, чи є токен при загрузці сторінки
@@ -42,5 +96,9 @@ headerLogoExit.addEventListener('click',  (e) => {
 	e.preventDefault();
 });
 
+btnCreate.addEventListener("click", (e) => {
+	const modalCreate = new ModalAppointment("Create appointment");
+	modalCreate.render();
+})
 
 
