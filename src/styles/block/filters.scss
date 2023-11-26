@@ -2,22 +2,63 @@
 	margin: 0 auto;
 }
 
-#filter-urgency:focus {
-	outline: none;
+#filter-input {
+	position: relative;
+	padding-left: 36px;
+	
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 4px;
+	}
+	
+	&:hover, &:active {
+		box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.10);
+	}
+	&:focus {
+		box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.10);
+		border: 1px solid var($primary-color) !important;
+	}
 }
+
+#filter-status, #filter-urgency {
+	&:hover, &:active, &:focus {
+		box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.10);
+	}
+}
+
+.search-icon {
+	position: absolute;
+	left: 6px;
+	transform: translateY(57%);
+	z-index: $ui-index-9;
+	width: 24px;
+	height: 24px;
+}
+
+
+.filter-clear {
+	width: 24px;
+	height: 24px;
+}
+#filter-reset {
+	background-color: transparent;
+}
+
 
 
 
 // SELECT стилізується залежно від обраного OPTION:
 
 #filter-urgency:has(> option[value="high"]:checked) {
-	background-color: red;
+	background-color: $ui-color-red;
 	color: white;
 	font-weight: bold;
 }
 
 #filter-urgency:has(> option[value="medium"]:checked) {
-	background-color: orange;
+	background-color: $ui-color-orange;
 	font-weight: bold;
 }
 
@@ -45,14 +86,19 @@
 
 .card {
 	&[data-urgency="high"] {
-		border-left: 6px solid red;
+		border: 1px solid $ui-color-red;
+		border-left: 6px solid $ui-color-red;
 		// or replace with your styling... :)
 	}
 	
 	&[data-urgency="medium"] {
-		border-left: 6px solid orange;
+		border: 1px solid $ui-color-orange;
+		border-left: 6px solid $ui-color-orange;
 		// or replace with your styling... :)
 	}
+	
+	
+	
 	
 	&[data-status="done"] {
 		opacity: 0.4;
