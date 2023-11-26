@@ -4,7 +4,7 @@ import {filterCards} from "./filter.js";
 
 function logOut() {
 	try {
-		localStorage.clear();
+		localStorage.removeItem("token");
 		btnLogin.style.display = "flex";
 		btnOut.style.display = "none";
 		btnCreate.style.display = "none";

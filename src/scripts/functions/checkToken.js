@@ -10,7 +10,7 @@ function checkToken({status}) {
             headerLogoExit.style.display = "block";
             mainBlock.style.display = "grid";
         } else {
-            localStorage.clear();
+            localStorage.removeItem("token");
             btnLogin.style.display = "flex";
             btnOut.style.display = "none";
             btnCreate.style.display = "none";

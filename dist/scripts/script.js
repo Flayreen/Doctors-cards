@@ -23,7 +23,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 document.querySelector('.filters__wrapper').addEventListener('input', () => {
 	filterCards();
 });
-
 // слухач для кнопки очищення фільтрів:
 document.querySelector('#filter-reset').addEventListener('click', filtersReset);
 
