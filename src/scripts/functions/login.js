@@ -15,19 +15,11 @@ async function login () {
 	if (token !== undefined) {
 		await renderVisits(token);
 		filterCards(); // Бо після входу треба перерахувати картки.
-
-	/*	
-		// delete modal
-		document.querySelector(".modal-backdrop").remove();
-		modalLogin.style.display = "none";
-		modalLogin.classList.remove("show");
-		modalLogin.removeAttribute("role");
-		modalLogin.removeAttribute("aria-modal");
-		modalLogin.setAttribute("aria-hidden", "true");
-		document.body.classList.remove("modal-open");
-		document.body.style.overflow = "";
-		document.body.style.padding = "";
-		*/
+		formLogin.remove();
+		const background = document.querySelector(".dark-background");
+		background.remove();
+		const modalWindow = document.querySelector(".modal-window");
+		modalWindow.remove();
 	}
 	
 }

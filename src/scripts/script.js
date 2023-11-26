@@ -8,14 +8,17 @@ import checkToken from "./functions/checkToken.js";
 import logOut from "./functions/logOut.js";
 import login from "./functions/login.js";
 import isToken from "./functions/isToken.js";
-
-import ModalLogOut from "./Classes/ModalLogOut.js";
+//Classes
+import ModalAttention from "./Classes/ModalAttention.js";
 import ModalLogin from "./Classes/ModalLogin.js";
+
+
 
 
 // Перевірка на те, чи є токен при загрузці сторінки
 document.addEventListener("DOMContentLoaded", async () => {
 	await isToken();
+	new ModalLogin().render();
 })
 
 
@@ -28,13 +31,15 @@ document.querySelector('.filters__wrapper').addEventListener('input', () => {
 document.querySelector('#filter-reset').addEventListener('click', filtersReset);
 
 
-/*
-//робота з формою
-formLogin.addEventListener('submit', async (e) => {
+btnOut.addEventListener('click',  (e) => {
+	new ModalAttention("Are you sure you want out","Log out").render();
 	e.preventDefault();
-	await login();
 });
-*/
+headerLogoExit.addEventListener('click',  (e) => {
+	new ModalAttention("Are you sure you want out","Log out").render();
+	e.preventDefault();
+});
+
 
 
 

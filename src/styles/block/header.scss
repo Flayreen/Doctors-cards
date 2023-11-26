@@ -311,19 +311,8 @@
 		}
 	}
 }
-
-
 ////////////////////////
-.dark-background {
-	width: 100vw;
-	height: 100vh;
-	background-color: rgba(0, 0, 0, 0.47);
-	position: absolute;
-	top: 0;
-	left: 0;
-}
-
-.modal {
+.modal-attention {
 	width: fit-content;
 	height: fit-content;
 	background-color: white;
