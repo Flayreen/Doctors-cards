@@ -1,5 +1,6 @@
 import {mainBlock} from "../variables.js";
 
+const sectionFilters = document.querySelector('section.filters');
 const filterInput = document.querySelector('#filter-input');
 const filterStatus = document.querySelector('#filter-status');
 const filterUrgency = document.querySelector('#filter-urgency');
@@ -95,3 +96,9 @@ function toggleDefaultOptionName(selectElement, defaultOptionValue, nameWhenSele
 
 // Після завантаження сторінки треба відобразити кількість карток:
 window.addEventListener('load', filterCards, {once: true});
+
+// ховаю фільтри від анонімів:
+export function showHideSectionFilters() {
+	sectionFilters.style.display =  (localStorage.getItem("token")) ? 'block' : 'none';
+}
+showHideSectionFilters();
