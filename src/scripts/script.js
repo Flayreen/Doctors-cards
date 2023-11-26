@@ -8,6 +8,7 @@ import checkToken from "./functions/checkToken.js";
 import logOut from "./functions/logOut.js";
 import login from "./functions/login.js";
 import isToken from "./functions/isToken.js";
+import visitCardiologist from "./Classes/VisitCardiologist.js";
 
 
 
@@ -39,3 +40,4 @@ btnOut.addEventListener("click" , () => {
 headerLogo.addEventListener("click" , () => {
 	logOut();
 })
+
