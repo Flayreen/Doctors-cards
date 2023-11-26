@@ -1,33 +1,53 @@
 <section class="filters">
-	<div class="container row my-3 pe-0">
-		<div class="filters__title col-md-4 my-2 fw-bolder fs-3">
-			Візити
-			<span class="shown-cards-count ms-1 fw-normal text-opacity-50"></span>
+	<div class="container d-flex flex-wrap px-4 my-3 align-items-center justify-content-between">
+		<div class="filters__title col-12 col-md-3 flex-grow-0 fw-bolder fs-3">
+			Visits
+			<span class="shown-cards-count ms-1 fw-normal"></span>
 		</div>
 		
 		
-		<div class="filters__wrapper col-md-8 row pe-0 me-0">
-			<div class="col-sm-4 my-1">
-					<input class="form-control border" type="search" placeholder="Filter" id="filter-input" aria-label="Filter by text">
+		<div class="filters__wrapper col-12 col-md-9 px-0 d-flex align-items-center flex-grow-1 flex-wrap justify-content-between justify-content-sm-end">
+			
+			<div class="col-12 col-sm-5 mx-0 ps-0 pe-0 pe-sm-2 position-relative">
+				<div class="search-icon">
+					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M21 21L17 17M11 19C13.1217 19 15.1566 18.1571 16.6569 16.6569C18.1571 15.1566 19 13.1217 19 11C19 8.87827 18.1571 6.84344 16.6569 5.34315C15.1566 3.84285 13.1217 3 11 3C8.87827 3 6.84344 3.84285 5.34315 5.34315C3.84285 6.84344 3 8.87827 3 11C3 13.1217 3.84285 15.1566 5.34315 16.6569C6.84344 18.1571 8.87827 19 11 19Z" stroke="#333333" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"/>
+					</svg>
+				</div>
+				<input class="form-control border my-2" type="search" placeholder="Filter" id="filter-input" aria-label="Filter by text">
 			</div>
 			
-			<div class="col-sm-8 my-1 row ms-0 align-items-center">
-				<div class="col-5">
-					<select class="form-select" aria-label="Filter by status" id="filter-status">
-						<option value="any">Status</option>
-						<option value="open">Open</option>
-						<option value="done">Done</option>
-					</select>
+			
+			<div class="col-12 col-sm-7 d-flex justify-content-end">
+				
+				<div class="col-11 d-flex flex-wrap ">
+					
+					
+					<div class="col-6 pe-1">
+						<select class="form-select my-2" aria-label="Filter by status" id="filter-status">
+							<option value="any">Status</option>
+							<option value="open">Open</option>
+							<option value="done">Done</option>
+						</select>
+					</div>
+					<div class="col-6 ps-1">
+						<select class="form-select my-2" aria-label="Filter by urgency" id="filter-urgency">
+							<option value="any">Urgency</option>
+							<option value="low">Non-urgent</option>
+							<option value="medium">Priority</option>
+							<option value="high">Urgent</option>
+						</select>
+					</div>
+					
+					
 				</div>
-				<div class="col-6">
-					<select class="form-select" aria-label="Filter by urgency" id="filter-urgency">
-						<option value="any">Urgency</option>
-						<option value="low">Non-urgent</option>
-						<option value="medium">Priority</option>
-						<option value="high">Urgent</option>
-					</select>
-				</div>
-				<button type="button" id="filter-reset" class="btn btn-light col-1 border">×</button>
+				
+				<button type="button" id="filter-reset" class="col-1 ps-3 pe-0 me-0 border-0">
+					<svg class="filter-clear" style="vertical-align: middle;fill: #333;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+						<path d="M534.9 255.8l2.7 2.5 177 178.2c19.9 20 19.9 52.2 0 72.2l-223.7 225H648V785H254.4L133.9 663.7c-19.8-20-19.8-52.2 0-72.2L465 258.3c18.9-19.1 49.5-20.2 69.9-2.5zM226.8 570.6l-56.6 57 105.5 106.2H390L226.8 570.6z m274.5-276.2L262.9 534.3l177.6 177.6 237.8-239.3-177-178.2z m0 0"  />
+					</svg>
+				</button>
+				
 			</div>
 			
 		</div>

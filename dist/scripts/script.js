@@ -8,6 +8,7 @@ import checkToken from "./functions/checkToken.js";
 import logOut from "./functions/logOut.js";
 import login from "./functions/login.js";
 import isToken from "./functions/isToken.js";
+import visitCardiologist from "./Classes/VisitCardiologist.js";
 
 
 
@@ -20,7 +21,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 // єдиний слухач для всіх фільтрів:
 document.querySelector('.filters__wrapper').addEventListener('input', () => {
-	filterCards(mainBlock);
+	filterCards();
 });
 // слухач для кнопки очищення фільтрів:
 document.querySelector('#filter-reset').addEventListener('click', filtersReset);
@@ -38,3 +39,4 @@ btnOut.addEventListener("click" , () => {
 headerLogo.addEventListener("click" , () => {
 	logOut();
 })
+

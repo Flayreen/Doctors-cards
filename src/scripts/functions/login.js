@@ -14,12 +14,14 @@ async function login () {
 
 	if (token !== undefined) {
 		await renderVisits(token);
+
 		filterCards(); // Бо після входу треба перерахувати картки.
 		formLogin.remove();
 		const background = document.querySelector(".dark-background");
 		background.remove();
 		const modalWindow = document.querySelector(".modal-window");
 		modalWindow.remove();
+
 	}
 	
 }

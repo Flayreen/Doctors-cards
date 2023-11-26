@@ -60,6 +60,7 @@ class Visit {
 	delete() {
 		this.buttonDelete.addEventListener("click", () => {
 			// Stop scrolling background
+			this.element.style.zIndex = "";
 			document.body.style.overflow = "hidden";
 			// Create dark background
 			const darkBackground = document.createElement("div");
@@ -153,9 +154,15 @@ class Visit {
 
 		this.buttonMore.addEventListener("click", () => {
 			if (this.buttonMore.textContent === "Show more") {
+				this.element.style.height = "fit-content";
+				this.element.style.boxShadow = "4px 4px 10px 0px rgba(0, 0, 0, 0.20)";
+				this.element.style.zIndex = this.id;
 				hideBlock.style.display = "flex";
 				this.buttonMore.textContent = "Show less"
 			} else {
+				this.element.style.zIndex = "";
+				this.element.style.height = "";
+				this.element.style.boxShadow = "";
 				hideBlock.style.display = "none";
 				this.buttonMore.textContent = "Show more";
 			}

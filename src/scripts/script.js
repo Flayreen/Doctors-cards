@@ -8,9 +8,11 @@ import checkToken from "./functions/checkToken.js";
 import logOut from "./functions/logOut.js";
 import login from "./functions/login.js";
 import isToken from "./functions/isToken.js";
+
 //Classes
 import ModalAttention from "./Classes/ModalAttention.js";
 import ModalLogin from "./Classes/ModalLogin.js";
+
 
 
 
@@ -39,7 +41,6 @@ headerLogoExit.addEventListener('click',  (e) => {
 	new ModalAttention("Are you sure you want out","Log out").render();
 	e.preventDefault();
 });
-
 
 
 
