@@ -1,6 +1,11 @@
 //------------- GLOBAL STYLES:
-
+html, body {
+	height: 100svh; // шоб поцентрувати вертикально empty-state.
+}
 body {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
 	@include default-font;
 }
 .container {

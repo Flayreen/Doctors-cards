@@ -3,6 +3,9 @@ import {mainBlock} from "../variables.js";
 const filterInput = document.querySelector('#filter-input');
 const filterStatus = document.querySelector('#filter-status');
 const filterUrgency = document.querySelector('#filter-urgency');
+const notloggedin = document.querySelector('.notloggedin'); // юзер не залогінений.
+const empty = document.querySelector('.empty'); // на сервері нема візитів.
+const nothingFound = document.querySelector('.nothingfound'); // фільтри сховали всі візити.
 
 export function filterCards() {
 	toggleDefaultOptionName(filterUrgency, 'any', 'Urgency', '—— ALL ——');
@@ -35,8 +38,31 @@ export function filterCards() {
 	});
 	
 	shownCardsCount.innerText = (filteredCount === domCards.length) ? `(${domCards.length})` : `(${filteredCount} з ${domCards.length})`;
+	
+	
+	// showing one of the three empty-state divs (notloggedin, empty, nothingfound):
+	if(localStorage.getItem("token")) {
+		// юзер залогінений:
+		notloggedin.style.display = 'none';
+		if (domCards.length) {
+			// на сервері є візити:
+			empty.style.display = 'none';
+			// чи фільтри сховали всі картки?:
+			nothingFound.style.display = filteredCount ? 'none' : 'flex';
+		} else {
+			// на сервері нема візитів:
+			empty.style.display = 'flex';
+		}
+	} else {
+		// юзер не залогінений:
+		notloggedin.style.display = 'flex';
+	}
+	
 }
 
+/**
+ * Resets all filters so that all the available visits are displayed.
+ */
 export function filtersReset() {
 	filterInput.value = '';
 	filterStatus.value = 'any';
