@@ -269,6 +269,7 @@ main {
 
 @media screen and (min-width: $ui-bp-min) {
 	.modal-container {
+		margin-top: 50px;
 		display: flex;
 		flex-direction: column;
 		gap: 16px;
