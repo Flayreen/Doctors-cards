@@ -1,4 +1,5 @@
 import Visit from "./Visit.js";
+import ModalAppointment from "./ModalAppointment.js";
 
 class VisitDentist extends Visit {
 	constructor(fullName, urgency, status, description, purpose, id, lastVisit){
@@ -18,7 +19,12 @@ class VisitDentist extends Visit {
 		super.render();
 		this.delete();
 		this.showMore();
+		this.edit();
 	};
+
+	edit() {
+		super.edit();
+	}
 
 	// Default from parent class Visit
 	delete() {

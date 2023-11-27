@@ -38,6 +38,16 @@
 	height: $height;
 	@include styleText(16px, 400, 150%, $primary-color, none, center);
 }
+
+@mixin disabledButton ($width, $height) {
+	background-color: #DEDEDE;
+	border: none;
+	border-radius: 8px;
+	width: $width;
+	height: $height;
+	@include styleText(16px, 400, 150%, #707070, none, center);
+}
+
 @mixin display-flex-column-align-center {
 	display: flex;
 	flex-direction: column;

@@ -79,6 +79,10 @@ main {
 	&__title {
 		@include styleText(24px, 500, 150%, $primary-color, capitalize, center);
 		margin-bottom: 12px;
+		width: 100%;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
 	}
 
 	&__doctor {
@@ -195,14 +199,17 @@ main {
 	}
 }
 
-.dark-background {
-	width: 100vw;
-	height: 100vh;
-	background-color: rgba(0, 0, 0, 0.47);
-	position: absolute;
-	top: 0;
-	left: 0;
-}
+//.dark-background {
+//	display: flex;
+//	align-items: center;
+//	justify-content: center;
+//	width: 100vw;
+//	height: 100vh;
+//	background-color: rgba(0, 0, 0, 0.47);
+//	position: absolute;
+//	top: 0;
+//	left: 0;
+//}
 
 .modal {
 	width: fit-content;
@@ -256,5 +263,199 @@ main {
 		font-weight: 500;
 		line-height: 150%;
 		letter-spacing: 0.48px;
+	}
+}
+
+
+@media screen and (min-width: $ui-bp-min) {
+	.modal-container {
+		margin-top: 50px;
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+		width: 320px;
+
+		&__title {
+			@include styleText(24px, 500, 150%, black, none, center);
+		}
+
+		&__inputs-container {
+			display: flex;
+			flex-direction: column;
+			width: 100%;
+
+			&__select {
+				height: 44px;
+
+				&:hover {
+					box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.10);
+
+					cursor: pointer;
+				}
+			}
+
+			&__text-block {
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-start;
+				gap: 4px;
+				margin: 8px 0;
+
+				&__label {
+					@include styleText(14px, 400, 150%, black, none, left);
+				}
+
+				&__input {
+					height: 44px;
+					background-color: white;
+					border: 1px solid #DCDCDC;
+					border-radius: 8px;
+					padding: 12px 16px;
+					box-sizing: border-box;
+					@include styleText(16px, 400, 150%, black, none, left);
+
+					&::placeholder {
+						color: #707070;
+					}
+
+					&:hover {
+						box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.10);
+					}
+				}
+			}
+
+			&__secondary-block {
+				display: flex;
+				flex-direction: column;
+				width: 100%;
+			}
+		}
+
+		&__buttons-container {
+			display: flex;
+			gap: 16px;
+			width: 100%;
+
+			&__cancel {
+				@include secondaryButton(100%, 48px);
+
+				&:hover {
+					border-color: #2C67FB;
+					color: #2C67FB;
+				}
+			}
+
+			&__button-blue {
+				@include primaryButton(100%, 48px);
+
+				&:hover {
+					background-color: #2C67FB;
+				}
+			}
+
+			&__disabled {
+				@include disabledButton(100%, 48px);
+
+				&:hover {
+					cursor: default;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 582px) {
+	.modal-container {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+		width: 550px;
+
+		&__title {
+			@include styleText(24px, 500, 150%, black, none, center);
+		}
+
+		&__inputs-container {
+			display: flex;
+			flex-direction: column;
+			width: 100%;
+
+			&__select {
+				height: 44px;
+
+				&:hover {
+					box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.10);
+
+					cursor: pointer;
+				}
+			}
+
+			&__text-block {
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-start;
+				gap: 4px;
+				margin: 8px 0;
+
+				&__label {
+					@include styleText(14px, 400, 150%, black, none, left);
+				}
+
+				&__input {
+					height: 44px;
+					background-color: white;
+					border: 1px solid #DCDCDC;
+					border-radius: 8px;
+					padding: 12px 16px;
+					box-sizing: border-box;
+					@include styleText(16px, 400, 150%, black, none, left);
+
+					&::placeholder {
+						color: #707070;
+					}
+
+					&:hover {
+						box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.10);
+					}
+				}
+			}
+
+			&__secondary-block {
+				display: flex;
+				flex-direction: column;
+				width: 100%;
+			}
+		}
+
+		&__buttons-container {
+			display: flex;
+			gap: 16px;
+			width: 100%;
+
+			&__cancel {
+				@include secondaryButton(100%, 48px);
+
+				&:hover {
+					border-color: #2C67FB;
+					color: #2C67FB;
+				}
+			}
+
+			&__button-blue {
+				@include primaryButton(100%, 48px);
+
+				&:hover {
+					background-color: #2C67FB;
+				}
+			}
+
+			&__disabled {
+				@include disabledButton(100%, 48px);
+
+				&:hover {
+					cursor: default;
+				}
+			}
+		}
 	}
 }

@@ -205,8 +205,8 @@
 ///////////--------MODAL
 .dark-background {
 	display: block;
-	width: 100vw;
-	height: 100vw;
+  width: 100vw;
+  height: 100vh;
 	background-color: rgba(0, 0, 0, 0.47);
 	position: absolute;
 	top: 0;
@@ -273,6 +273,9 @@
 		border: 1px solid rgba(220, 220, 220, 1);
 		background-color: rgba(222, 222, 222, 1);
 		border-radius: 8px;
+
+		gap: 12px;
+		padding: 12px 12px 12px 16px;
 		margin: 4px;
 
 	}
@@ -285,6 +288,7 @@
 	&__input-password:focus {
 		border: 1px solid rgba(78, 124, 239, 1);
 		box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.1);
+
 	}
 
 
@@ -441,7 +445,7 @@
 			border: 1px solid rgba(220, 220, 220, 1);
 			border-radius: 8px;
 			gap: 12px;
-			padding: 12px, 12px, 12px, 12px;
+			padding: 12px 12px 12px 12px;
 		}
 		&__input-email:focus {
 			border: 1px solid rgba(78, 124, 239, 1);
