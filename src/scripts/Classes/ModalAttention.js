@@ -47,6 +47,7 @@ class ModalAttention {
         // Event of darkBackground
         this.darkBackground.addEventListener("click", (e) => {
             e.stopPropagation();
+            this.body.style.overflow = "";
             this.darkBackground.remove();
             this.modalContainer.remove();
         })

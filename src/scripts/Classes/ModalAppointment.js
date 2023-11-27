@@ -26,7 +26,7 @@ class ModalAppointment {
 
     render() {
         // Stop scrolling background
-        // document.body.style.overflow = "hidden";
+        document.body.style.overflow = "hidden";
         // Create dark background
         this.darkBackground.style.top = window.scrollY + "px";
         this.darkBackground.classList.add("dark-background");
@@ -122,10 +122,20 @@ class ModalAppointment {
         this.darkBackground.append(this.modalContainer);
         document.body.append(this.darkBackground);
 
-        buttonCancel.addEventListener("click", () => {
+        buttonCancel.addEventListener("click", (e) => {
+            e.stopPropagation();
             document.body.style.overflow = "";
             this.modalContainer.remove();
             this.darkBackground.remove();
+        })
+
+        this.darkBackground.addEventListener("click", (e) => {
+            if (!e.target.closest(".modal-container")) {
+                e.stopPropagation();
+                document.body.style.overflow = "";
+                this.modalContainer.remove();
+                this.darkBackground.remove();
+            }
         })
     }
 
@@ -279,7 +289,7 @@ class ModalAppointment {
         this.statusDropdown.setAttribute("id", "select-status")
         this.statusDropdown.insertAdjacentHTML(
             "beforeend",
-            `<option value="any">Select the status</option>
+            `
                   <option value="open">Open</option>
                   <option value="done">Done</option>
                 `
@@ -290,6 +300,7 @@ class ModalAppointment {
         this.doctorDropdown.value = doctor.toLowerCase();
         this.doctorDropdown.querySelector("[value='any']").remove();
         this.urgencyDropdown.value = urgency;
+        this.urgencyDropdown.querySelector("[value='any']").remove();
         this.fullName.value = fullName;
         this.purpose.value = purpose;
         this.description.value = description;
