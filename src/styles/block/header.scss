@@ -343,6 +343,16 @@
 	
 			&__button-login {
 				@include primaryButton(212px, 48px);
+				background-color: rgba(78, 124, 239, 1);
+				color:rgba(255, 255, 255, 1);
+			}
+			&__button-login:hover {
+				@include primaryButton(212px, 48px);
+				background-color:rgba(44, 103, 251, 1);
+				color: rgba(255, 255, 255, 1);
+			}
+			&__button-login:disabled{
+				@include primaryButton(212px, 48px);
 				background-color: rgba(222, 222, 222, 1);
 				color: rgba(112, 112, 112, 1);
 			}
@@ -361,7 +371,7 @@
 			border: 1px solid rgba(220, 220, 220, 1);
 			border-radius: 8px;
 			gap: 12px;
-			padding: 12px, 12px, 12px, 12px;
+			padding: 12px 12px 12px 12px;
 		}
 		&__input-email:focus {
 			border: 1px solid rgba(78, 124, 239, 1);
@@ -426,6 +436,16 @@
 			}
 
 			&__button-login {
+				@include primaryButton(144px, 48px);
+				background-color: rgba(44, 103, 251, 1);
+				color:  rgba(255, 255, 255, 1);
+			}
+			&__button-login:hover {
+				@include primaryButton(144px, 48px);
+				background-color:rgba(44, 103, 251, 1);
+				color: rgba(255, 255, 255, 1);
+			}
+			&__button-login:disabled{
 				@include primaryButton(144px, 48px);
 				background-color: rgba(222, 222, 222, 1);
 				color: rgba(112, 112, 112, 1);
