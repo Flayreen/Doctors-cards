@@ -269,11 +269,12 @@ main {
 
 @media screen and (min-width: $ui-bp-min) {
 	.modal-container {
-		margin-top: 50px;
+		overflow: scroll;
 		display: flex;
 		flex-direction: column;
 		gap: 16px;
 		width: 320px;
+		max-height: 600px;
 
 		&__title {
 			@include styleText(24px, 500, 150%, black, none, center);
