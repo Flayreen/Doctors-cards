@@ -1,4 +1,5 @@
 import Visit from "./Visit.js";
+import ModalAppointment from "./ModalAppointment.js";
 
 class VisitCardiologist extends Visit {
 	constructor(fullName, urgency, status, description, purpose, id, pressure, bmi, disease, age){
@@ -21,11 +22,16 @@ class VisitCardiologist extends Visit {
 		super.render();
 		this.delete();
 		this.showMore();
+		this.edit();
 	};
 
 	// Default from parent class Visit
 	delete() {
 		super.delete();
+	}
+
+	edit() {
+		super.edit();
 	}
 
 	showMore() {
