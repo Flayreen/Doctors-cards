@@ -66,6 +66,7 @@ class ModalLogin {
             this.buttonModalLogin.classList.add("modal-window__buttons-container__button-login");
             this.buttonModalLogin.textContent = "Login";
             this.buttonModalLogin.setAttribute("type", "submit");
+            this.buttonModalLogin.setAttribute("type","disabled");
 
             this.buttonsContainer.append(this.buttonModalLogin, this.buttonCancel);
             this.formLogin.append(this.modalTitle, this.spanEmail, this.inputEmail, this.spanPassword, this.inputPassword, this.buttonsContainer,)
@@ -80,6 +81,7 @@ class ModalLogin {
             })
 
             this.formLogin.addEventListener("submit", async (e) => {
+                this.buttonModalLogin.disabled = true;
                 e.preventDefault();
                 await login();
             })
@@ -89,6 +91,15 @@ class ModalLogin {
                 this.modalContainer.remove();
                 this.darkBackgroundContainer.remove();
                 this.formLogin.remove();
+            })
+            this.inputPassword.addEventListener("click", (e) => {
+                this.buttonModalLogin.disabled = false;
+                
+            
+            })
+            this.inputEmail.addEventListener("click", (e) => {
+                this.buttonModalLogin.disabled = false;
+                this.errorText.innerText = "";
             })
         })
     }
