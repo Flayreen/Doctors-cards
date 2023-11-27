@@ -27,20 +27,10 @@ async function getToken(user) {
 
         if (response) {
             if (response.status === 401) {
-                formLogin.insertAdjacentHTML(
-                    "beforeend",
-                    `<span style="display:inline-block; color:red; margin-top:12px">
-                            Incorrect email or password
-                         </span>`
-                )
+                document.querySelector('.error-text').innerText = 'Incorrect email or password';
             }
             if (response.status === 500) {
-                formLogin.insertAdjacentHTML(
-                    "beforeend",
-                    `<span style="display:inline-block; color:red; margin-top:12px">
-                    Please enter your email or password!
-                         </span>`
-                )
+                document.querySelector('.error-text').innerText = 'Please enter your email or password';
             }
 
         }

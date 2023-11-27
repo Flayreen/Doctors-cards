@@ -23,6 +23,9 @@ class ModalLogin {
         //кнопки
         this.buttonCancel = document.createElement("button");
         this.buttonModalLogin = document.createElement("button");
+        // повідомлення про неправильний логін-пароль
+        this.errorText = document.createElement("span");
+        
 
     }
 
@@ -68,11 +71,16 @@ class ModalLogin {
             this.buttonModalLogin.setAttribute("type", "submit");
             this.buttonModalLogin.setAttribute("type","disabled");
 
+            this.errorText.classList.add('error-text');
+            
             this.buttonsContainer.append(this.buttonModalLogin, this.buttonCancel);
-            this.formLogin.append(this.modalTitle, this.spanEmail, this.inputEmail, this.spanPassword, this.inputPassword, this.buttonsContainer,)
+            
+            this.formLogin.append(this.modalTitle, this.spanEmail, this.inputEmail, this.spanPassword, this.inputPassword, this.buttonsContainer, this.errorText)
             this.modalContainer.append(this.formLogin);
             this.body.append(this.darkBackgroundContainer, this.modalContainer)
 
+            
+            
             // Event of cancel
             this.buttonCancel.addEventListener("click", () => {
                 this.body.style.overflow = "";
@@ -99,7 +107,7 @@ class ModalLogin {
             })
             this.inputEmail.addEventListener("click", (e) => {
                 this.buttonModalLogin.disabled = false;
-                this.errorText.innerText = "";
+                document.querySelector('.error-text').innerText = '';
             })
         })
     }

@@ -361,7 +361,7 @@
 			border: 1px solid rgba(220, 220, 220, 1);
 			border-radius: 8px;
 			gap: 12px;
-			padding: 12px, 12px, 12px, 12px;
+			padding: 12px;
 		}
 		&__input-email:focus {
 			border: 1px solid rgba(78, 124, 239, 1);
@@ -518,4 +518,10 @@
 			background-color: #EB3E3E;
 		}
 	}
+}
+
+.error-text {
+	display:inline-block;
+	color:red;
+	margin-top:12px
 }
