@@ -97,8 +97,9 @@ headerLogoExit.addEventListener('click',  (e) => {
 });
 
 btnCreate.addEventListener("click", (e) => {
-	const modalCreate = new ModalAppointment("Create appointment");
+	const modalCreate = new ModalAppointment("Create appointment", "Create");
 	modalCreate.render();
+	modalCreate.create();
 })
 
 
