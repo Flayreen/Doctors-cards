@@ -20,6 +20,10 @@
 	&_logo__exit {
 		display: none;
 	}
+	&_logo__exit:hover {
+		display: none;
+		background-color: rgba(222, 222, 222, 1);
+	}
 }
 
 .btn {
@@ -28,10 +32,22 @@
 		display: flex;
 	}
 
+	&__login:hover {
+		@include primaryButton (124px, 48px);
+		background-color: rgba(44, 103, 251, 1);
+
+	}
+
 	&__create {
 		@include primaryButton (218px, 48px);
 		white-space: nowrap;
 		display: none;
+	}
+
+	&__create:hover {
+		white-space: nowrap;
+		@include primaryButton (218px, 48px);
+		background-color: rgba(44, 103, 251, 1);
 	}
 
 	&__out {
@@ -42,6 +58,12 @@
 		justify-content: center;
 		margin-left: 16px;
 	}
+
+	&__out:hover {
+		@include secondaryButton (89px, 48px);
+		background-color: rgba(222, 222, 222, 1);
+	}
+
 }
 
 //----------mobile max 480 px----------//
@@ -73,6 +95,9 @@
 				border-radius: 8px;
 				margin-left: auto;
 			}
+			&__exit:hover {
+				background-color: rgba(222, 222, 222, 1);
+			}
 		}
 	}
 
@@ -84,10 +109,19 @@
 			@include primaryButton (328px, 48px);
 			margin: 16px 0;
 		}
+		&__login:hover {
+			@include primaryButton (328px, 48px);
+			background-color: rgba(44, 103, 251, 1);
+	
+		}
 
 		&__create {
 			@include primaryButton (328px, 48px);
 			margin: 16px 0;
+		}
+		&__create:hover {
+			@include primaryButton (328px, 48px);
+			background-color: rgba(44, 103, 251, 1);
 		}
 
 	}
@@ -114,6 +148,9 @@
 				position: absolute;
 				visibility: hidden;
 			}
+			&__exit:hover {
+				background-color: rgba(222, 222, 222, 1);
+			}
 		}
 	}
 
@@ -121,9 +158,19 @@
 		&__login {
 			@include primaryButton (124px, 48px);
 		}
+		&__login:hover {
+			@include primaryButton (124px, 48px);
+			background-color: rgba(44, 103, 251, 1);
+	
+		}
+		
 
 		&__create {
 			@include primaryButton (218px, 48px);
+		}
+		&__create:hover {
+			@include primaryButton (218px, 48px);
+			background-color: rgba(44, 103, 251, 1);
 		}
 
 		&__out {
@@ -155,7 +202,7 @@
 }
 
 
-//MODAL
+///////////--------MODAL
 .dark-background {
 	display: block;
 	width: 100%;
@@ -188,6 +235,7 @@
 
 	&__buttons-container {
 		display: flex;
+		padding-top: 12px;
 		gap: 12px;
 
 		&__button-cancel {
@@ -205,21 +253,36 @@
 .form-login {
 	display: flex;
 	flex-direction: column;
-	gap: 16px;
 
 	&__input-email,
 	&__input-password {
+		outline: 0;
 		width: 502px;
 		height: 44px;
 		box-sizing: border-box;
 		border: 1px solid rgba(220, 220, 220, 1);
 		border-radius: 8px;
+
 		gap: 12px;
 		padding: 12px 12px 12px 16px;
+		margin: 4px;
+
 	}
 
+	&__input-email:focus {
+		border: 1px solid rgba(78, 124, 239, 1);
+		box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.1);
+	}
+
+	&__input-password:focus {
+		border: 1px solid rgba(78, 124, 239, 1);
+		box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.1);
+
+	}
+
+
 	&__input-email-icon {
-		background: url(./../../images/mail.png) no-repeat center;
+		background: url(./../../images/mail.svg) no-repeat center;
 		background-position: bottom 50% left 10px;
 		padding-left: 47px;
 	}
@@ -234,7 +297,90 @@
 	&__span-password {
 		@include styleText(14px, 400, 150%, rgba(0, 0, 0, 1), none, start);
 	}
+
 }
+
+//----------481-992 tablet//
+@media screen and (max-width:$ui-bp-tab-max) {
+	.modal-window {
+		width: fit-content;
+		height: fit-content;
+		background-color: white;
+		padding: 24px 16px;
+		box-sizing: border-box;
+		border-radius: 25px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 24px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+
+		&__title {
+			@include styleText(24px, 500, 150%, rgba(0, 0, 0, 1), none, center);
+		}
+
+		&__buttons-container {
+			display: flex;
+			gap: 12px;
+
+			&__button-cancel {
+				@include secondaryButton(212px, 48px)
+			}
+	
+			&__button-login {
+				@include primaryButton(212px, 48px);
+				background-color: rgba(222, 222, 222, 1);
+				color: rgba(112, 112, 112, 1);
+			}
+		}
+	}
+
+	.form-login {
+		display: flex;
+		flex-direction: column;
+
+		&__input-email,
+		&__input-password {
+			width: 436px;
+			height: 44px;
+			box-sizing: border-box;
+			border: 1px solid rgba(220, 220, 220, 1);
+			border-radius: 8px;
+			gap: 12px;
+			padding: 12px, 12px, 12px, 12px;
+		}
+		&__input-email:focus {
+			border: 1px solid rgba(78, 124, 239, 1);
+			box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.1);
+		}
+	
+		&__input-password:focus {
+			border: 1px solid rgba(78, 124, 239, 1);
+			box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.1);
+		}
+		&__input-email-icon {
+			background: url(./../../images/mail.svg) no-repeat center;
+			background-position: bottom 50% left 10px;
+			padding-left: 47px;
+
+		}
+
+		&__input-password-icon {
+			background: url(./../../images/lock.png) no-repeat center;
+			background-position: bottom 50% left 10px;
+			padding-left: 47px;
+		}
+
+		&__span-email,
+		&__span-password {
+			@include styleText(14px, 400, 150%, rgba(0, 0, 0, 1), none, start);
+		}
+	}
+}
+
 
 //--------max 482px----------
 
@@ -262,7 +408,7 @@
 
 		&__buttons-container {
 			display: flex;
-			gap: 12px;
+			gap: 8px;
 
 			&__button-cancel {
 				@include secondaryButton(144px, 48px)
@@ -279,12 +425,10 @@
 	.form-login {
 		display: flex;
 		flex-direction: column;
-		gap: 12px;
 
 		&__input-email,
 		&__input-password {
 			width: 296px;
-			;
 			height: 44px;
 			box-sizing: border-box;
 			border: 1px solid rgba(220, 220, 220, 1);
@@ -292,9 +436,18 @@
 			gap: 12px;
 			padding: 12px 12px 12px 12px;
 		}
+		&__input-email:focus {
+			border: 1px solid rgba(78, 124, 239, 1);
+			box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.1);
+		}
+	
+		&__input-password:focus {
+			border: 1px solid rgba(78, 124, 239, 1);
+			box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.1);
+		}
 
 		&__input-email-icon {
-			background: url(./../../images/mail.png) no-repeat center;
+			background: url(./../../images/mail.svg) no-repeat center;
 			background-position: bottom 50% left 10px;
 			padding-left: 47px;
 		}
@@ -311,6 +464,15 @@
 		}
 	}
 }
+
+
+
+
+
+
+
+
+
 ////////////////////////
 .modal-attention {
 	width: fit-content;

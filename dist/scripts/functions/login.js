@@ -2,7 +2,7 @@
 import {formLogin, modalLogin} from "../variables.js";
 import getToken from "../API/getToken.js"
 import renderVisits from "./renderVisits.js";
-import {filterCards} from "./filter.js";
+import {filterCards, showHideSectionFilters} from "./filter.js";
 
 async function login () {
 	const formData = new FormData(formLogin);
@@ -21,7 +21,8 @@ async function login () {
 		background.remove();
 		const modalWindow = document.querySelector(".modal-window");
 		modalWindow.remove();
-
+		
+		showHideSectionFilters(); // — Чи ховати фільтри від аноніма.
 	}
 	
 }

@@ -88,12 +88,17 @@ document.querySelector('#filter-reset').addEventListener('click', filtersReset);
 
 
 btnOut.addEventListener('click',  (e) => {
-	new ModalAttention("Are you sure you want out","Log out").render();
 	e.preventDefault();
+	const Attention = new ModalAttention("Are you sure you want out?","Log out");
+	Attention.createElement();
+	Attention.exit();
 });
 headerLogoExit.addEventListener('click',  (e) => {
-	new ModalAttention("Are you sure you want out","Log out").render();
 	e.preventDefault();
+	const Attention = new ModalAttention("Are you sure you want out?","Log out");
+	Attention.createElement();
+	Attention.exit();
+	
 });
 
 btnCreate.addEventListener("click", (e) => {

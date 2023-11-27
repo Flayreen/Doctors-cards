@@ -19,10 +19,7 @@ class ModalAttention {
         this.buttonCancel = document.createElement("button");
         this.buttonRedElement = document.createElement("button");
     }
-    render() {
-        this.createElement();
-        this.exit();
-    }
+    
     createElement() {
         this.body = document.querySelector("body");
         // Stop scrolling background
@@ -61,6 +58,7 @@ class ModalAttention {
             this.modalContainer.remove();
         })
     }
+    
     exit() {
         this.buttonRedElement.addEventListener("click", (e) => {
             e.stopPropagation();
