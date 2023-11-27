@@ -1,5 +1,7 @@
 
 import logOut from "../functions/logOut.js";
+import deleteVisit from "../API/deleteVisit.js";
+import {filterCards} from "../functions/filter.js";
 class ModalAttention {
     constructor(modalText, buttonRed) {
         this.modalText = modalText;
@@ -67,6 +69,22 @@ class ModalAttention {
         })
     }
 
+    remove(element, id) {
+        this.buttonRedElement.addEventListener("click", async () => {
+            try {
+                const response = await deleteVisit(id);
+                if (response.status === 200) {
+                    element.remove()
+                    this.body.style.overflow = "";
+                    this.darkBackground.remove();
+                    this.modalContainer.remove();
+                    filterCards(); // Бо після видалення картки треба оновити кількість карток (Eddy).
+                }
+            } catch (err) {
+                console.log(err)
+            }
+        });
+    }
 
 }
 export default ModalAttention

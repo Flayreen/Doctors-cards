@@ -9,9 +9,8 @@ async function deleteVisit(id) {
             }
         });
 
-        if (response.status === 200) {
-            return response;
-        }
+        return response;
+
     } catch (error) {
         console.log(error);
     }
