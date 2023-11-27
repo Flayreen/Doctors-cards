@@ -3,15 +3,8 @@
 }
 
 #filter-input {
-	position: relative;
 	padding-left: 36px;
-	
-	&::before {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: 4px;
-	}
+
 	
 	&:hover, &:active {
 		box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.10);
@@ -32,7 +25,6 @@
 	position: absolute;
 	left: 6px;
 	transform: translateY(57%);
-	z-index: $ui-index-9;
 	width: 24px;
 	height: 24px;
 }
