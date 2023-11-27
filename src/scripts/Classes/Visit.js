@@ -1,10 +1,12 @@
 import ModalAttention from "./ModalAttention.js";
+import ModalAppointment from "./ModalAppointment.js";
 
 class Visit {
 	constructor(fullName, urgency, status, description, purpose, id) {
 		this.fullName = fullName;
 		this.urgency = urgency;
 		this.status = status;
+		this.doctor = "any";
 		this.description = description;
 		this.purpose = purpose;
 		this.id = id;
@@ -50,14 +52,15 @@ class Visit {
 		// Logic of adding cards to columns
 		const containerMain = document.querySelector(".container--main");
 		containerMain.append(this.element);
-
-
-		// this.delete();
-		// this.showMore();
 	}
 
 	delete() {
 		this.buttonDelete.addEventListener("click", () => {
+			this.element.style.zIndex = "";
+			this.element.style.height = "";
+			this.element.style.boxShadow = "";
+			this.element.querySelector(".card__hidden").style.display = "none";
+			this.buttonMore.textContent = "Show more";
 
 			const modalDelete = new ModalAttention (
 				"Are you sure you want to delete the appointment?",
@@ -121,6 +124,30 @@ class Visit {
 				hideBlock.style.display = "none";
 				this.buttonMore.textContent = "Show more";
 			}
+		})
+
+		document.addEventListener("click", (event) => {
+			if (!this.element.contains(event.target) && this.element.contains(this.buttonEdit) && this.buttonMore.textContent === "Show less") {
+				this.element.style.zIndex = "";
+				this.element.style.height = "";
+				this.element.style.boxShadow = "";
+				hideBlock.style.display = "none";
+				this.buttonMore.textContent = "Show more";
+			}
+		})
+	}
+
+	edit() {
+		this.buttonEdit.addEventListener("click", () => {
+			this.element.style.zIndex = "";
+			this.element.style.height = "";
+			this.element.style.boxShadow = "";
+			this.element.querySelector(".card__hidden").style.display = "none";
+			this.buttonMore.textContent = "Show more";
+
+			const modalEdit = new ModalAppointment("Edit appointment", "Save");
+			modalEdit.render();
+			modalEdit.edit(this.doctor, this.urgency, this.status, this.fullName, this.purpose, this.description, this.age, this.lastVisit, this.disease, this.pressure, this.bmi, this.id);
 		})
 	}
 }

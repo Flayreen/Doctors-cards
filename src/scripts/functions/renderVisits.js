@@ -14,7 +14,7 @@ async function renderVisits(token) {
 
         allVisits.forEach(visit => {
             if (visit.doctor.toLowerCase() === "cardiologist") {
-                const visitCard = new visitCardiologist(visit.fullName, visit.urgency, visit.status, visit.description, visit.purpose, visit.id, visit.pressure, visit.bmi, visit.disease, visit.age);
+                const visitCard = new visitCardiologist(visit.fullName, visit.urgency, visit.status, visit.description, visit.purpose, visit.id, visit.pressure, visit.bmi, visit.diseases, visit.age);
                 visitCard.render();
             }
 
