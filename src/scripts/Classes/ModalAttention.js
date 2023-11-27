@@ -48,6 +48,7 @@ class ModalAttention {
         this.darkBackground.addEventListener("click", (e) => {
             document.body.style.overflow = ""; // фікс пропадаючого скрола
             e.stopPropagation();
+            this.body.style.overflow = "";
             this.darkBackground.remove();
             this.modalContainer.remove();
         })
