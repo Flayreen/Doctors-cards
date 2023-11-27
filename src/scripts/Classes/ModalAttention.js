@@ -43,9 +43,10 @@ class ModalAttention {
         this.buttonsContainer.append(this.buttonCancel, this.buttonRedElement);
         this.modalContainer.append(this.modalTextELement, this.buttonsContainer);
         this.body.append(this.darkBackground, this.modalContainer);
-
+    
         // Event of darkBackground
         this.darkBackground.addEventListener("click", (e) => {
+            document.body.style.overflow = ""; // фікс пропадаючого скрола
             e.stopPropagation();
             this.body.style.overflow = "";
             this.darkBackground.remove();
