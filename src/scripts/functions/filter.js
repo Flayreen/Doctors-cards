@@ -100,5 +100,6 @@ window.addEventListener('load', filterCards, {once: true});
 // ховаю фільтри від анонімів:
 export function showHideSectionFilters() {
 	sectionFilters.style.display =  (localStorage.getItem("token")) ? 'block' : 'none';
+	filtersReset();
 }
 showHideSectionFilters();
