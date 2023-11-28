@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/whitehoof/template"
+    "url": "git+https://github.com/whitehoof/fe23-step-cards"
   },
   "author": "Ed Whitehoof",
   "devDependencies": {
