@@ -19,7 +19,6 @@ async function getToken(user) {
         if (response.status === 200) {
             const { data } = response;
             localStorage.setItem("token", data);
-            console.log(response);
             checkToken(response);
             return data;
         }
