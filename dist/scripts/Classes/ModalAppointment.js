@@ -181,7 +181,7 @@ class ModalAppointment {
         this.buttonBlue.addEventListener("click", async () => {
             try {
                 if (this.fullName.value !== "" && this.urgencyDropdown.value !== "any" && this.purpose.value !== "" && this.description.value !== "" && this.doctorDropdown.value !== "any") {
-                    const visits = await getVisits();
+                    const visits = await getVisits(localStorage.getItem('token'));
                     let maxId = Math.max(...visits.map(obj => obj.id));
 
                     const body = {
