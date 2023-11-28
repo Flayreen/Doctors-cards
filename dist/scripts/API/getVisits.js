@@ -1,9 +1,8 @@
-const TOKEN_FROM_LOCALSTORAGE = localStorage.getItem("token");
-async function getVisits() {
+async function getVisits(token) {
 	try {
 		const response = await axios.get('https://ajax.test-danit.com/api/v2/cards', {
 			headers: {
-				'Authorization': `Bearer ${TOKEN_FROM_LOCALSTORAGE}`,
+				'Authorization': `Bearer ${token}`,
 			}
 		})
 		return response.data;

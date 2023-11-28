@@ -30,7 +30,7 @@ async function renderVisits(token) {
         });
         filterCards(); // Бо після рендеру треба перерахувати картки.
     } catch (error) {
-        console.log(error)
+        console.warn(error)
     }
 }
 
