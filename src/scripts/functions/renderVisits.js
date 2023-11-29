@@ -7,9 +7,9 @@ import visitTherapist from "../Classes/VisitTherapist.js";
 import getVisits from "../API/getVisits.js";
 import {filterCards} from "./filter.js";
 
-async function renderVisits(token) {
+async function renderVisits() {
     try {
-        const allVisits = await getVisits(token);
+        const allVisits = await getVisits();
         allVisits.sort((a, b) =>  b.id - a.id);
 
         allVisits.forEach(visit => {

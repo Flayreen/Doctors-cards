@@ -13,7 +13,7 @@ async function login () {
 	const token = await getToken(user);
 
 	if (token !== undefined) {
-		await renderVisits(token);
+		await renderVisits();
 
 		filterCards(); // Бо після входу треба перерахувати картки.
 		formLogin.remove();
